@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
 function createButtons(qnt: number) {
     let buttons = [];
@@ -25,13 +25,10 @@ function createButtons(qnt: number) {
     return buttons;
 }
 
-export default function Window(props: {
-    title?: string;
-    backgroundColor?: string;
-}) {
+export default function WindowExample() {
     return (
         <div className="window">
-            <div className="window-title">{props.title}</div>
+            <div className="window-title">Dynamic GUI</div>
             <div className="window-frame">
                 <Layout className="window-frame-container">
                     <Header className="window-frame-header">

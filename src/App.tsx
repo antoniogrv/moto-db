@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
-import Window from "./Window";
+import WindowExample from "./WindowExample";
+import WindowDebug from "./WindowDebug";
+import WindowConfig from "./WindowConfig";
 import {
     BookOutlined,
     DownloadOutlined,
@@ -57,7 +59,8 @@ function App() {
                                             className="action-button"
                                             type="primary"
                                         >
-                                            Download
+                                            Download — &nbsp;
+                                            <em>Stable 1.00</em>
                                         </Button>
                                     </Col>
                                     <Col span={11}>
@@ -68,7 +71,7 @@ function App() {
                                             className="action-button"
                                             type="primary"
                                         >
-                                            Wiki
+                                            Documentazione
                                         </Button>
                                     </Col>
                                     <Col span={2}>
@@ -96,18 +99,13 @@ function App() {
                         </Row>
                         <Row gutter={24}>
                             <Col span={8}>
-                                <Window title="GUI dinamica"></Window>
+                                <WindowExample />
                             </Col>
                             <Col span={8}>
-                                {" "}
-                                <Window
-                                    backgroundColor="black"
-                                    title="Debug dev-friendly"
-                                ></Window>
+                                <WindowDebug />
                             </Col>
                             <Col span={8}>
-                                {" "}
-                                <Window title="Configurazione semplice"></Window>
+                                <WindowConfig />
                             </Col>
                         </Row>
                     </div>
