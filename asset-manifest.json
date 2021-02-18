@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/moto-db/static/css/main.5a9d3275.chunk.css",
-    "main.js": "/moto-db/static/js/main.8df23b49.chunk.js",
-    "main.js.map": "/moto-db/static/js/main.8df23b49.chunk.js.map",
+    "main.css": "/moto-db/static/css/main.8396dee2.chunk.css",
+    "main.js": "/moto-db/static/js/main.c620e8bb.chunk.js",
+    "main.js.map": "/moto-db/static/js/main.c620e8bb.chunk.js.map",
     "runtime-main.js": "/moto-db/static/js/runtime-main.9a81a0a4.js",
     "runtime-main.js.map": "/moto-db/static/js/runtime-main.9a81a0a4.js.map",
     "static/css/2.1e58ee36.chunk.css": "/moto-db/static/css/2.1e58ee36.chunk.css",
-    "static/js/2.c7e022f5.chunk.js": "/moto-db/static/js/2.c7e022f5.chunk.js",
-    "static/js/2.c7e022f5.chunk.js.map": "/moto-db/static/js/2.c7e022f5.chunk.js.map",
+    "static/js/2.ef1722d8.chunk.js": "/moto-db/static/js/2.ef1722d8.chunk.js",
+    "static/js/2.ef1722d8.chunk.js.map": "/moto-db/static/js/2.ef1722d8.chunk.js.map",
     "index.html": "/moto-db/index.html",
     "static/css/2.1e58ee36.chunk.css.map": "/moto-db/static/css/2.1e58ee36.chunk.css.map",
-    "static/css/main.5a9d3275.chunk.css.map": "/moto-db/static/css/main.5a9d3275.chunk.css.map",
-    "static/js/2.c7e022f5.chunk.js.LICENSE.txt": "/moto-db/static/js/2.c7e022f5.chunk.js.LICENSE.txt"
+    "static/css/main.8396dee2.chunk.css.map": "/moto-db/static/css/main.8396dee2.chunk.css.map",
+    "static/js/2.ef1722d8.chunk.js.LICENSE.txt": "/moto-db/static/js/2.ef1722d8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9a81a0a4.js",
     "static/css/2.1e58ee36.chunk.css",
-    "static/js/2.c7e022f5.chunk.js",
-    "static/css/main.5a9d3275.chunk.css",
-    "static/js/main.8df23b49.chunk.js"
+    "static/js/2.ef1722d8.chunk.js",
+    "static/css/main.8396dee2.chunk.css",
+    "static/js/main.c620e8bb.chunk.js"
   ]
 }
