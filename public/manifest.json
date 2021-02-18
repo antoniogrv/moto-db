@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MotoDB",
+  "name": "Genera automaticamente una GUI per il tuo progetto di Basi di Dati!",
   "icons": [
     {
       "src": "favicon.ico",
