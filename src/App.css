@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+@import "antd/dist/antd.css";
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+    width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+    padding: 100px;
+    background: #dddddd;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.about {
+    text-align: right;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+    font-size: 100px;
+    font-weight: 900;
 }
 
-.App-link {
-  color: #61dafb;
+.motto {
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: -30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mission {
+    font-size: 21px;
+    font-weight: 300;
+}
+
+.mission-content {
+    padding-top: 35px;
+}
+
+.mission-content strong {
+    font-weight: 500;
+}
+
+/*
+    Window Frame
+*/
+
+.window {
+    padding-top: 50px;
+}
+
+.window-title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.window-frame {
+    border: 1px solid black;
+    color: white;
+}
+
+.window-frame-header {
+    background: #2e2f32;
+    height: 25px;
+}
+
+.window-frame-content-container {
+    background: #202124;
+}
+
+.window-frame-content {
+    padding: 10px;
+}
+
+.button {
+    border: 1px solid black;
+    background: #2e2f32;
+    width: 100%;
+    height: 27px;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button-text {
+    padding: 15px;
+}
+
+.button-container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.output-board {
+    background: white;
+    border: 1px solid black;
+    height: 100%;
+    color: black;
+}
+
+.output-board-content {
+    padding: 10px;
 }
