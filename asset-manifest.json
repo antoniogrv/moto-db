@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/moto-db/static/css/main.2954dde2.chunk.css",
+    "main.js": "/moto-db/static/js/main.c337aa11.chunk.js",
+    "main.js.map": "/moto-db/static/js/main.c337aa11.chunk.js.map",
+    "runtime-main.js": "/moto-db/static/js/runtime-main.fb9fc42c.js",
+    "runtime-main.js.map": "/moto-db/static/js/runtime-main.fb9fc42c.js.map",
+    "static/css/2.1e58ee36.chunk.css": "/moto-db/static/css/2.1e58ee36.chunk.css",
+    "static/js/2.cd4a77d7.chunk.js": "/moto-db/static/js/2.cd4a77d7.chunk.js",
+    "static/js/2.cd4a77d7.chunk.js.map": "/moto-db/static/js/2.cd4a77d7.chunk.js.map",
+    "static/js/3.cc208593.chunk.js": "/moto-db/static/js/3.cc208593.chunk.js",
+    "static/js/3.cc208593.chunk.js.map": "/moto-db/static/js/3.cc208593.chunk.js.map",
+    "index.html": "/moto-db/index.html",
+    "static/css/2.1e58ee36.chunk.css.map": "/moto-db/static/css/2.1e58ee36.chunk.css.map",
+    "static/css/main.2954dde2.chunk.css.map": "/moto-db/static/css/main.2954dde2.chunk.css.map",
+    "static/js/2.cd4a77d7.chunk.js.LICENSE.txt": "/moto-db/static/js/2.cd4a77d7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb9fc42c.js",
+    "static/css/2.1e58ee36.chunk.css",
+    "static/js/2.cd4a77d7.chunk.js",
+    "static/css/main.2954dde2.chunk.css",
+    "static/js/main.c337aa11.chunk.js"
+  ]
+}
