@@ -175,3 +175,64 @@ body,
 .bad {
     color: #f97272;
 }
+
+/*
+    Responsive Design
+*/
+
+.fast-layout {
+    display: none;
+}
+
+@media only screen and (max-width: 1070px) {
+    .fast-layout,
+    .fast-layout .ant-col-10 {
+        display: block;
+    }
+
+    .fast-layout .ant-col-10 {
+        max-width: 100%;
+    }
+
+    .fast-layout-buttons {
+        padding: 20px;
+    }
+
+    .fast-layout .ant-btn {
+        width: 100%;
+    }
+
+    .fast-layout-button-container {
+        padding: 7.5px;
+    }
+
+    .fast-layout .title {
+        padding-top: 10px;
+        font-size: 65px;
+    }
+
+    .fast-layout .motto {
+        padding: 10px;
+        font-size: 22.5px;
+    }
+
+    .windows,
+    .mission-content,
+    .ant-col-1,
+    .ant-col-10 {
+        display: none;
+    }
+
+    .app {
+        padding: 0;
+    }
+
+    .about {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 60px;
+    }
+}

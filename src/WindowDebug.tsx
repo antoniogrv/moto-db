@@ -55,7 +55,9 @@ export default function WindowDebug() {
                                                         Ricontrolla i dati.
                                                     </span>
                                                 </div>
-                                                <div className="line">...</div>
+                                                <div className="line more">
+                                                    ...
+                                                </div>
                                                 <div className="line">
                                                     <span className="good">
                                                         <strong>

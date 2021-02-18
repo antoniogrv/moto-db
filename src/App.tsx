@@ -3,6 +3,8 @@ import "./App.css";
 import WindowExample from "./WindowExample";
 import WindowDebug from "./WindowDebug";
 import WindowConfig from "./WindowConfig";
+import Title from "./Title";
+import FastLayout from "./FastLayout";
 import {
     BookOutlined,
     DownloadOutlined,
@@ -11,9 +13,9 @@ import {
 import { Route, Switch, HashRouter } from "react-router-dom";
 import { Row, Col, Button } from "antd";
 
-const downloadLink = "/";
-const wikiLink = "/";
-const githubLink = "/";
+export const downloadLink = "/";
+export const wikiLink = "/";
+export const githubLink = "/";
 
 function App() {
     return (
@@ -21,15 +23,9 @@ function App() {
             <Switch>
                 <Route path="/">
                     <div className="app">
+                        <FastLayout />
                         <Row gutter={16}>
-                            <Col span={10}>
-                                <div className="about">
-                                    <div className="title">MotoDB</div>
-                                    <div className="motto">
-                                        <em>do less, do worse.</em>
-                                    </div>
-                                </div>
-                            </Col>
+                            <Title />
                             <Col span={1}></Col>
                             <Col span={10}>
                                 <div className="mission">
@@ -97,7 +93,7 @@ function App() {
                                 </Row>
                             </Col>
                         </Row>
-                        <Row gutter={24}>
+                        <Row className="windows" gutter={24}>
                             <Col span={8}>
                                 <WindowExample />
                             </Col>

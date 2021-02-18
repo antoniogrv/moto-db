@@ -7,7 +7,7 @@ function createButtons(qnt: number) {
     let buttons = [];
     for (let i = 0; i < qnt; i++)
         buttons.push(
-            <Row className="button-container">
+            <Row key={i} className="button-container">
                 <Col span={24}>
                     <div
                         className={
