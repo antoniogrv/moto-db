@@ -1,8 +1,17 @@
 import React from "react";
 import "./App.css";
 import Window from "./Window";
+import {
+    BookOutlined,
+    DownloadOutlined,
+    GithubOutlined,
+} from "@ant-design/icons";
 import { Route, Switch, HashRouter } from "react-router-dom";
-import { Row, Col } from "antd";
+import { Row, Col, Button } from "antd";
+
+const downloadLink = "/";
+const wikiLink = "/";
+const githubLink = "/";
 
 function App() {
     return (
@@ -15,7 +24,7 @@ function App() {
                                 <div className="about">
                                     <div className="title">MotoDB</div>
                                     <div className="motto">
-                                        <em>do less, worse.</em>
+                                        <em>do less, do worse.</em>
                                     </div>
                                 </div>
                             </Col>
@@ -39,6 +48,50 @@ function App() {
                                         <em>It’s that easy.</em>
                                     </p>
                                 </div>
+                                <Row gutter={12}>
+                                    <Col span={11}>
+                                        <Button
+                                            href={downloadLink}
+                                            size="large"
+                                            icon={<DownloadOutlined />}
+                                            className="action-button"
+                                            type="primary"
+                                        >
+                                            Download
+                                        </Button>
+                                    </Col>
+                                    <Col span={11}>
+                                        <Button
+                                            href={wikiLink}
+                                            size="large"
+                                            icon={<BookOutlined />}
+                                            className="action-button"
+                                            type="primary"
+                                        >
+                                            Wiki
+                                        </Button>
+                                    </Col>
+                                    <Col span={2}>
+                                        <Button
+                                            href={githubLink}
+                                            size="large"
+                                            icon={
+                                                <div
+                                                    style={{
+                                                        marginTop: "-2px",
+                                                    }}
+                                                >
+                                                    <GithubOutlined
+                                                        style={{
+                                                            fontSize: "25px",
+                                                        }}
+                                                    />
+                                                </div>
+                                            }
+                                            type="primary"
+                                        ></Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                         <Row gutter={24}>
