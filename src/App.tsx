@@ -13,9 +13,10 @@ import {
 import { Route, Switch, HashRouter } from "react-router-dom";
 import { Row, Col, Button } from "antd";
 
-export const downloadLink = "/";
-export const wikiLink = "/";
-export const githubLink = "/";
+export const downloadLink =
+    "https://github.com/v1enna/moto-db/archive/master.zip";
+export const wikiLink = "https://github.com/v1enna/moto-db/wiki";
+export const githubLink = "https://github.com/v1enna/moto-db";
 
 function App() {
     return (
