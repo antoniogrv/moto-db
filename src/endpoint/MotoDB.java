@@ -8,8 +8,7 @@ public class MotoDB extends Actor {
     public MotoDB() {
         if(Config.DEBUG_MODE)
             new DebugFrame();
-        debug("?Applicazione avviata");
-        debug(":Successo Successo Successo Successo Successo Successo Successo Successo Successo Successo Successo Successo Successo Successo ");
+        debug(":Applicazione avviata con successo");
     }
 
 }

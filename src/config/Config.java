@@ -54,7 +54,7 @@ public class Config {
          * 
          * Si consiglia di disattivare l'opzione alla discussione del progetto.
          */
-        Config.DEBUG_MODE = true;
+        DEBUG_MODE = true;
 
         /*
         * Impostazioni del frame di debug.
@@ -77,8 +77,8 @@ public class Config {
         DEBUG_MODE_COLOR_WAIT = "#E4D357";
 
         /*
-        * Spaziatura esterna ed interna del frame di debug.
-        * Ordine: TOP > LEFT > BOTTOM > RIGHT
+        * Spaziatura esterna ed interna del frame di debug in pixel.
+        * Le dimensioni sono espresse nell'ordine {Top, Left, Bottom, Right}.
         */
         DEBUG_MODE_OUTER_PADDING = new int[]{8, 8, 8, 8};
         DEBUG_MODE_INNER_PADDING = new int[]{12, 12, 12, 12};
@@ -86,6 +86,8 @@ public class Config {
         /*
          * Abilita la colorazione scura della GUI. 
          * Impostare a 'false' per usare la modalità chiara.
+         * Nella 1.00 è disponibile esclusivamente la dark mode, 
+         * dunque cambiare la seguente impostazione non produrrà alcun effetto, per ora.
          */
         DARK_MODE = true;
 
@@ -94,7 +96,7 @@ public class Config {
         * Se si desidera cambiare l'icona, si suggerisce di limitarsi a cambiare l'immagine .png
         * .. specifica nel path sottostante, e non cambiare il path stesso.
         */
-        MOTODB_ICON_PATH = "./logo512.png";
+        MOTODB_ICON_PATH = "./src/static/logo512.png";
     }
 
     public static String DB_NAME;

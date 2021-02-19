@@ -1,5 +1,7 @@
 package db;
 
-public class DBConnectionPool {
+import endpoint.Actor;
+
+public class DBConnectionPool extends Actor {
 
 }

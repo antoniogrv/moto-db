@@ -1,5 +1,7 @@
 package db;
 
-public class DBHandler {
+import endpoint.Actor;
+
+public class DBHandler extends Actor {
 
 }

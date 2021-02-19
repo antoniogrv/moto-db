@@ -1,5 +1,7 @@
 package gui;
 
-public class QueryFrame {
+import endpoint.Actor;
+
+public class QueryFrame extends Actor {
 
 }

@@ -1,5 +1,7 @@
 package gui;
 
-public class MainFrame {
+import endpoint.Actor;
+
+public class MainFrame extends Actor {
 
 }

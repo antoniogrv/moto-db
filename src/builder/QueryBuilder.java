@@ -1,5 +1,7 @@
 package builder;
 
-public class QueryBuilder {
+import endpoint.Actor;
+
+public class QueryBuilder extends Actor {
 
 }
