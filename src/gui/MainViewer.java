@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.io.IOException;
 
 public class MainViewer extends Actor {
@@ -26,9 +28,14 @@ public class MainViewer extends Actor {
         private static final long serialVersionUID = 1L;
 
         public MainFrame() {
+            /*
+             * Configurazione di default del MainFrame. Per informazioni relative all'icona
+             * del frame, consultare DebugFrame().
+             */
             setTitle(Config.MAIN_VIEWER_FRAME_TITLE);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setSize(Config.MAIN_VIEWER_FRAME_SIZE[0], Config.MAIN_VIEWER_FRAME_SIZE[1]);
+            setLocationRelativeTo(null); // Posiziona centralmente il frame alla creazione
 
             try {
                 setIconImage(ImageIO.read(new File(Config.MOTODB_ICON_PATH)));
@@ -36,17 +43,87 @@ public class MainViewer extends Actor {
                 debug("!Impossibile trovare l'icona. Ricontrolla la configurazione.");
             }
 
+            /*
+             * Routine di popolamento della GUI. Riferirsi alla documentazione per i singoli
+             * componenti. -- Gerarchia: [LeftSide, RightSide] -- [LeftSide]: {Buttons}
+             * [RightSide]: {Outer > Scrollbar > TextArea}
+             */
+            JPanel rightSide = createRightSide();
+            JPanel leftSide = createLeftSide();
+            JPanel resultArea = createResultPanel();
+            JScrollPane scrollableResultArea = createScrollbar();
+
+            scrollableResultArea.add(resultArea);
+
+            rightSide.add(scrollableResultArea, BorderLayout.CENTER);
+
+            add(leftSide, BorderLayout.WEST);
+            add(rightSide, BorderLayout.CENTER);
+
+            setVisible(true);
+
+            debug(":MainFrame creato e popolato con successo");
+        }
+
+        private String resultDemo() {
+            /*
+             * Questa funzione permette di riempire l'area di testo con contenuto
+             * predefinito per finalità di testing. L'area sarà popolata solo ed
+             * esclusivamente in debug mode.
+             */
+            String str = null;
+            int j = 50;
+
+            for (int i = 0; i < j; i++)
+                str += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
+
+            return str;
+        }
+
+        private JPanel createButton(int id) {
+            /*
+             * Gerarchia: Container > Button > Label
+             */
+            JPanel buttonContainer = new JPanel(new GridLayout(1, 1));
+            JPanel button = new JPanel();
+            JLabel label = new JLabel("Operazione " + id);
+
+            button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            button.setBorder(new EmptyBorder(2, 20, 2, 20));
+            button.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
+            button.addMouseListener(new ButtonListener());
+
+            label.setForeground(Color.WHITE);
+            label.setFont(new Font("Open Sans", Font.BOLD, 14));
+
+            button.add(label);
+
+            buttonContainer.add(button);
+
+            return buttonContainer;
+        }
+
+        private JPanel createRightSide() {
             JPanel outer = new JPanel();
+
             outer.setLayout(new GridLayout(1, 1));
             outer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_OUTER_BACKGROUND));
             outer.setBorder(new EmptyBorder(Config.DEBUG_MODE_OUTER_PADDING[0], Config.DEBUG_MODE_OUTER_PADDING[1],
                     Config.DEBUG_MODE_OUTER_PADDING[2], Config.DEBUG_MODE_OUTER_PADDING[3]));
 
+            return outer;
+        }
+
+        private JPanel createLeftSide() {
+            /*
+             * Gerarchia: Container > Wrapper > TextArea
+             */
             JPanel buttonsContainer = new JPanel();
+            JPanel buttonsWrapper = new JPanel();
+
             buttonsContainer.setBorder(new EmptyBorder(10, -4, -4, -5));
             buttonsContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
 
-            JPanel buttonsWrapper = new JPanel();
             buttonsWrapper.setLayout(new GridLayout(Config.Operations.size(), 1));
 
             for (int i = 0; i < Config.Operations.size(); i++)
@@ -54,16 +131,21 @@ public class MainViewer extends Actor {
 
             buttonsContainer.add(buttonsWrapper);
 
+            return buttonsContainer;
+        }
+
+        private JPanel createResultPanel() {
+            /*
+             * Gerarchia: Container > Wrapper > TextArea
+             */
             JPanel resultContainer = new JPanel(new GridLayout(1, 1));
-            resultContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
-
-            /* not here */
-
             JPanel resultWrapper = new JPanel(new GridLayout(1, 1));
-            this.result = new JTextArea("Bentornato!");
-            resultContainer.setBorder(new EmptyBorder(15, 15, 15, 15));
-            result.setBorder(new EmptyBorder(5, 5, 5, 5));
+            JTextArea result = new JTextArea("Bentornato!");
 
+            resultContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
+            resultContainer.setBorder(new EmptyBorder(15, 15, 15, 15));
+
+            result.setBorder(new EmptyBorder(5, 5, 5, 5));
             result.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
             result.setForeground(Color.WHITE);
             result.setEditable(false);
@@ -71,72 +153,68 @@ public class MainViewer extends Actor {
             result.setLineWrap(true);
             result.setWrapStyleWord(true);
 
-            resultWrapper.add(this.result);
+            if (Config.DEBUG_MODE)
+                result.setText(resultDemo());
+
+            resultWrapper.add(result);
             resultContainer.add(resultWrapper);
 
-            /* not here */
+            this.result = result;
 
-            add(buttonsContainer, BorderLayout.WEST);
-            outer.add(resultContainer, BorderLayout.CENTER);
-
-            add(outer, BorderLayout.CENTER);
-
-            setLocationRelativeTo(null); // Posiziona centralmente il frame alla creazione
-            setVisible(true);
-
-            debug(":MainFrame creato e popolato con successo");
+            return resultContainer;
         }
 
-        private JPanel createButton(int id) {
-            JPanel buttonContainer = new JPanel(new GridLayout(1, 1));
-            JPanel button = new JPanel();
-        
-            JLabel label = new JLabel("Operazione " + id);
+        private JScrollPane createScrollbar() {
+            /*
+             * Routine di stilizzazione della scrollbar. Per stilizzare la scrollbar è stata
+             * usata un'API pubblica integrata in Java, UIManager.
+             */
+            JScrollPane scrollbar = new JScrollPane();
 
-            label.setForeground(Color.WHITE);
-            label.setFont(new Font("Open Sans", Font.BOLD, 14));
+            UIManager.put("ScrollBar.thumb",
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+            UIManager.put("ScrollBar.thumbDarkShadow",
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+            UIManager.put("ScrollBar.thumbShadow",
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+            UIManager.put("ScrollBar.thumbHighlight",
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+            UIManager.put("ScrollBar.track",
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND)));
 
-            button.setBorder(new EmptyBorder(2, 20, 2, 20));
-            button.add(label);
-            button.setBackground( 
-                Color.decode(
-                    Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND
-                )
-            );
+            scrollbar.setBorder(
+                    BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND), 2));
+            scrollbar.getVerticalScrollBar().setUI(new BasicScrollBarUI());
+            scrollbar.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
 
-            buttonContainer.add(button);
-
-            button.addMouseListener(new ButtonListener());
-
-            return buttonContainer;
+            return scrollbar;
         }
-        
+
     }
 
     public class ButtonListener extends MouseAdapter {
+        /*
+         * Logica di creazione del QueryFrame per la rispettiva operazione.
+         */
 
         public void mouseClicked(MouseEvent e) {
-            // QueryViewer
+            // new QueryViewer ...
         }
 
         public void mouseEntered(MouseEvent e) {
             Object source = e.getSource();
             JPanel button = (JPanel) source;
 
-            button.setBackground(Color.decode(
-                Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER
-            ));
+            button.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER));
         }
 
         public void mouseExited(MouseEvent e) {
             Object source = e.getSource();
             JPanel button = (JPanel) source;
 
-            button.setBackground(Color.decode(
-                Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND
-            ));
+            button.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
         }
-        
+
     }
 
 }

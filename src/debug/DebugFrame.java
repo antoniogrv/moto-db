@@ -23,7 +23,7 @@ public class DebugFrame extends JFrame {
          * dati.
          */
         setTitle(Config.DEBUG_MODE_FRAME_TITLE);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setSize(Config.DEBUG_MODE_FRAME_SIZE[0], Config.DEBUG_MODE_FRAME_SIZE[1]);
 
         try {
