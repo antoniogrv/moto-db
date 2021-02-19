@@ -50,12 +50,6 @@ public class MainViewer extends Actor {
              */
             JPanel rightSide = createRightSide();
             JPanel leftSide = createLeftSide();
-            JPanel resultArea = createResultPanel();
-            JScrollPane scrollableResultArea = createScrollbar();
-
-            scrollableResultArea.add(resultArea);
-
-            rightSide.add(scrollableResultArea, BorderLayout.CENTER);
 
             add(leftSide, BorderLayout.WEST);
             add(rightSide, BorderLayout.CENTER);
@@ -63,21 +57,6 @@ public class MainViewer extends Actor {
             setVisible(true);
 
             debug(":MainFrame creato e popolato con successo");
-        }
-
-        private String resultDemo() {
-            /*
-             * Questa funzione permette di riempire l'area di testo con contenuto
-             * predefinito per finalità di testing. L'area sarà popolata solo ed
-             * esclusivamente in debug mode.
-             */
-            String str = null;
-            int j = 50;
-
-            for (int i = 0; i < j; i++)
-                str += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
-
-            return str;
         }
 
         private JPanel createButton(int id) {
@@ -104,6 +83,13 @@ public class MainViewer extends Actor {
         }
 
         private JPanel createRightSide() {
+            /*
+             * Elabora il lato destro del MainFrame. In particolare, nella spaziatura viene
+             * implementata una scrollbar personalizzata (ScrollPane, sotto forma di
+             * JScrollPane) e all'interno di quest'ultima vengono poi inseriti più layer
+             * grafici per l'area di testo (resultArea, sotto forma di JPanel) nella quale
+             * verranno stampati i risultati delle operazioni.
+             */
             JPanel outer = new JPanel();
 
             outer.setLayout(new GridLayout(1, 1));
@@ -111,7 +97,10 @@ public class MainViewer extends Actor {
             outer.setBorder(new EmptyBorder(Config.DEBUG_MODE_OUTER_PADDING[0], Config.DEBUG_MODE_OUTER_PADDING[1],
                     Config.DEBUG_MODE_OUTER_PADDING[2], Config.DEBUG_MODE_OUTER_PADDING[3]));
 
+            outer.add(createScrollPane(), BorderLayout.CENTER);
+
             return outer;
+
         }
 
         private JPanel createLeftSide() {
@@ -164,12 +153,12 @@ public class MainViewer extends Actor {
             return resultContainer;
         }
 
-        private JScrollPane createScrollbar() {
+        private JScrollPane createScrollPane() {
             /*
              * Routine di stilizzazione della scrollbar. Per stilizzare la scrollbar è stata
-             * usata un'API pubblica integrata in Java, UIManager.
+             * usata un'API pubblica integrata in Swing, ossia UIManager.
              */
-            JScrollPane scrollbar = new JScrollPane();
+            JScrollPane scrollPane = new JScrollPane(createResultPanel());
 
             UIManager.put("ScrollBar.thumb",
                     new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
@@ -182,12 +171,27 @@ public class MainViewer extends Actor {
             UIManager.put("ScrollBar.track",
                     new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND)));
 
-            scrollbar.setBorder(
+            scrollPane.setBorder(
                     BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND), 2));
-            scrollbar.getVerticalScrollBar().setUI(new BasicScrollBarUI());
-            scrollbar.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
+            scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI());
+            scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
 
-            return scrollbar;
+            return scrollPane;
+        }
+
+        private String resultDemo() {
+            /*
+             * Questa funzione permette di riempire l'area di testo con contenuto
+             * predefinito per finalità di testing. L'area sarà popolata solo ed
+             * esclusivamente in debug mode.
+             */
+            String str = "";
+            int j = 50;
+
+            for (int i = 0; i < j; i++)
+                str += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
+
+            return str;
         }
 
     }
