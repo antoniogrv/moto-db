@@ -1,9 +1,9 @@
 package config;
 
 import java.util.*;
-import endpoint.Actor;
+import endpoint.*;
 
-public class Config extends Actor {
+public class Config {
     /*
      * Modifica questo file per generare la tua GUI.
      */
@@ -40,10 +40,17 @@ public class Config extends Actor {
          */
         Operations.addAll(
             Arrays.asList(
-                new String[] { 
-                    /* .01 */ "SELECT * FROM example_table", 
-                    /* .02 */ "SELECT column FROM example_table"
-                    /* ... */ 
+                new Operation[] { 
+                    /* Operazione .01 */
+                    new Operation( 
+                        "SELECT * FROM professori", 
+                        "Seleziona tutti i professori della scuola."
+                    ),
+                    /* Operazione .02 */
+                    new Operation( 
+                        "SELECT nome FROM studente WHERE matricola = matricola.value", 
+                        "Seleziona il nome dello studente selezionato tramite matricola."
+                    )
                 }
             )
         );
@@ -123,6 +130,6 @@ public class Config extends Actor {
 
     public static String MOTODB_ICON_PATH;
 
-    public static ArrayList<String> Operations = new ArrayList<String>();
+    public static ArrayList<Operation> Operations = new ArrayList<Operation>();
 
 }
