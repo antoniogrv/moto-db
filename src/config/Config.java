@@ -111,7 +111,8 @@ public class Config {
         MAIN_VIEWER_OUTER_PADDING = new int[]{8, 8, 8, 8};
         MAIN_VIEWER_INNER_PADDING = new int[]{12, 12, 12, 12};
 
-        MAIN_VIEWER_FRAME_BUTTON = "#202124";
+        MAIN_VIEWER_FRAME_BUTTON_BACKGROUND = "#191A1C";
+        MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = "#1d1e21";
 
         /*
          * Abilita la colorazione scura della GUI. 
@@ -157,7 +158,8 @@ public class Config {
     public static int[] MAIN_VIEWER_OUTER_PADDING;
     public static int[] MAIN_VIEWER_INNER_PADDING;
 
-    public static String MAIN_VIEWER_FRAME_BUTTON;
+    public static String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND;
+    public static String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
 
     public static boolean DARK_MODE;
 
