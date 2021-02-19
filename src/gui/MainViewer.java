@@ -16,14 +16,14 @@ import java.io.IOException;
 
 public class MainViewer extends Actor {
 
+    private JTextArea result;
+
     public MainViewer() {
         debug("?Genero il MainFrame...");
         new MainFrame();
     }
 
     public class MainFrame extends JFrame {
-
-        private JTextArea result;
 
         private static final long serialVersionUID = 1L;
 
@@ -59,18 +59,18 @@ public class MainViewer extends Actor {
             debug(":MainFrame creato e popolato con successo");
         }
 
-        private JPanel createButton(int id) {
+        private JPanel createButton(int operationId) {
             /*
              * Gerarchia: Container > Button > Label
              */
             JPanel buttonContainer = new JPanel(new GridLayout(1, 1));
             JPanel button = new JPanel();
-            JLabel label = new JLabel("Operazione " + id);
+            JLabel label = new JLabel("Operazione " + operationId);
 
             button.setCursor(new Cursor(Cursor.HAND_CURSOR));
             button.setBorder(new EmptyBorder(2, 20, 2, 20));
             button.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
-            button.addMouseListener(new ButtonListener());
+            button.addMouseListener(new ButtonListener(operationId - 1));
 
             label.setForeground(Color.WHITE);
             label.setFont(new Font(Config.MAIN_VIEWER_FRAME_BUTTON_FONT, Font.BOLD,
@@ -151,7 +151,7 @@ public class MainViewer extends Actor {
             resultWrapper.add(result);
             resultContainer.add(resultWrapper);
 
-            this.result = result;
+            setResult(result);
 
             return resultContainer;
         }
@@ -199,13 +199,27 @@ public class MainViewer extends Actor {
 
     }
 
+    public JTextArea getResult() {
+        return this.result;
+    }
+
+    public void setResult(JTextArea result) {
+        this.result = result;
+    }
+
     public class ButtonListener extends MouseAdapter {
         /*
          * Logica di creazione del QueryFrame per la rispettiva operazione.
          */
 
+        private int operationId;
+
+        public ButtonListener(int operationId) {
+            this.operationId = operationId;
+        }
+
         public void mouseClicked(MouseEvent e) {
-            // new QueryViewer ...
+            new QueryViewer(Config.Operations.get(operationId), result);
         }
 
         public void mouseEntered(MouseEvent e) {
