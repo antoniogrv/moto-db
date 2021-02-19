@@ -20,6 +20,7 @@ public class DebugViewer extends Actor {
 
     public DebugViewer() {
         new DebugFrame();
+        debug(":Modalità di debug attiva");
     }
 
     public static class DebugFrame extends JFrame {
@@ -30,7 +31,8 @@ public class DebugViewer extends Actor {
             System.out.println("<Config> Modalità di debug attiva");
             /*
              * Preleva i dati di configurazione e crea un JFrame in funzione dei suddetti
-             * dati.
+             * dati. Informazioni relative al path dell'icona possono essere consultati nel
+             * file di configurazione o sulla documentazione.
              */
             setTitle(Config.DEBUG_VIEWER_FRAME_TITLE);
             setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -49,6 +51,7 @@ public class DebugViewer extends Actor {
              * spaziatura.
              */
             JPanel outer = new JPanel();
+
             outer.setLayout(new GridLayout(1, 1));
             outer.setBorder(new EmptyBorder(Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[0],
                     Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[1], Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[2],
