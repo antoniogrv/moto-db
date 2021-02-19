@@ -5,14 +5,26 @@ import endpoint.*;
 
 public class Config {
     /*
-     * Modifica questo file per generare la tua GUI. Non modificare nessun altro
-     * file.
+     * Modifica questo file per generare la tua GUI. Modificare un qualsiasi altro
+     * file che non sia questo potrebbe compromettere il corretto funzionamento del
+     * software.
      */
 
     public static void setConfigurations() {
+        /*
+         * [!] CONFIGURAZIONI ESSENZIALI - Le successive quattro configurazioni (nome
+         * del progetto, nome del database, nome utente del database, password del
+         * database, lista di operazioni, debug mode, sono ritenute essenziali da
+         * modificare per permette al software di funzione correttamente.
+         * 
+         * In particolare, sarà necessario riempire la lista delle operazioni OPERATIONS
+         * in base alle proprie necessità, e seguendo scrupolosamente la documentazione.
+         */
 
         /*
-         * Definire il nome del proprio progetto. Esempi: "scuola, centro estetico [..]"
+         * [! CONFIGURAZIONE ESSENZIALE]
+         * 
+         * Definisci il nome del tuo progetto. Esempi: "scuola, centro estetico [..]"
          */
         PROJECT_NAME = "Il mio progetto";
 
@@ -53,13 +65,22 @@ public class Config {
                         "Seleziona il nome dello studente selezionato tramite matricola.") }));
 
         /*
-         * Attiva la modalità di debug. La modalità di debug abiliterà la generazion di
-         * un frame shell-like per visualizzare costantemente le azioni degli attori del
-         * software.
+         * [! CONFIGURAZIONE ESSENZIALE]
+         * 
+         * Attiva o disattiva la modalità di debug. La modalità di debug abiliterà la
+         * generazion di un frame shell-like per visualizzare costantemente le azioni
+         * degli attori del software.
          * 
          * Si consiglia di disattivare l'opzione alla discussione del progetto.
          */
         DEBUG_MODE = true;
+
+        /*
+         * [!] CONFIGURAZIONI NON ESSENZIALI
+         * 
+         * Se non sei interessato a cambiare l'aspetto del programma, ignora tutto ciò
+         * che è configurato di seguente.
+         */
 
         /*
          * Impostazioni del frame di debug. Le dimensioni sono espresse in {Larghezza,
