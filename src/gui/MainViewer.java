@@ -16,6 +16,10 @@ import java.io.IOException;
 
 public class MainViewer extends Actor {
 
+    /*
+     * La JTextArea result è l'area di testo in cui verranno stampati i risultati
+     * delle query in funzione dell'operazione selezionata.
+     */
     private JTextArea result;
 
     public MainViewer() {
@@ -200,31 +204,46 @@ public class MainViewer extends Actor {
 
     }
 
+    /*
+     * Getter: Result
+     */
     public JTextArea getResult() {
         return this.result;
     }
 
+    /*
+     * Setter: Result
+     */
     public void setResult(JTextArea result) {
         this.result = result;
     }
 
     public class ButtonListener extends MouseAdapter {
+
         /*
          * Logica di creazione del QueryFrame per la rispettiva operazione.
          */
-
         private int operationId;
 
         public ButtonListener(int operationId) {
             this.operationId = operationId;
         }
 
+        /*
+         * Al click del mouse su uno qualsiasi dei bottoni delle operazioni, genera un
+         * QueryFrame dinamico per quella stessa operazione. Il QueryViewer delegherà al
+         * QueryBuilder l'elaborazione della query grezza, se necessario.
+         */
         public void mouseClicked(MouseEvent e) {
             debug("?Richiedo la creazione di un QueryViewer...");
             new QueryViewer(Config.Operations.get(operationId), result);
             debug(":QueryViewer creato con successo per l'operazione " + (operationId + 1));
         }
 
+        /*
+         * MouseEntered e MouseExited permettono di implementare una breve animazione
+         * grafica al passaggio del mouse.
+         */
         public void mouseEntered(MouseEvent e) {
             Object source = e.getSource();
             JPanel button = (JPanel) source;

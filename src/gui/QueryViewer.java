@@ -29,7 +29,7 @@ public class QueryViewer extends Actor {
             setTitle(Config.QUERY_VIEWER_FRAME_TITLE);
             setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             setSize(Config.QUERY_VIEWER_FRAME_SIZE[0], Config.QUERY_VIEWER_FRAME_SIZE[1]);
-            setLocationRelativeTo(null); // Posiziona centralmente il frame alla creazione
+            setLocationRelativeTo(null);
             setVisible(true);
 
             debug("?Operazione selezionata: " + op.getDescription());
