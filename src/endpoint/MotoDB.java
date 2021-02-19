@@ -3,18 +3,19 @@ package endpoint;
 import java.sql.SQLException;
 import config.Config;
 import db.DBConnectionPool;
-import debug.DebugFrame;
+import debug.DebugViewer;
 import gui.MainViewer;
 
 public class MotoDB extends Actor {
 
     public MotoDB() {
         if (Config.DEBUG_MODE)
-            new DebugFrame();
+            new DebugViewer();
 
         try {
-            DBConnectionPool.getConnection();
             debug(":Configurazione caricata con successo");
+            DBConnectionPool.getConnection();
+            debug(":Connessione al database avvenuta con successo");
             new MainViewer();
         } catch (SQLException e) {
             System.out.println("<MotoDB> E' risultato impossibile connettersi al database");

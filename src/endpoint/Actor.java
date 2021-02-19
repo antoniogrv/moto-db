@@ -1,7 +1,7 @@
 package endpoint;
 
 import config.Config;
-import debug.DebugFrame;
+import debug.DebugViewer;
 
 public abstract class Actor {
 
@@ -13,7 +13,7 @@ public abstract class Actor {
 
     public void debug(String message) {
         if (Config.DEBUG_MODE)
-            DebugFrame.printMessage(message.charAt(0) + Actor + message.substring(1));
+            DebugViewer.printMessage(message.charAt(0) + Actor + message.substring(1));
     }
 
 }

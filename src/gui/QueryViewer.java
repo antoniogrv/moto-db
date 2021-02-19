@@ -12,6 +12,8 @@ public class QueryViewer extends Actor {
 
     public QueryViewer(Operation op, JTextArea result) {
         this.op = op;
+        this.result = result;
+
         new QueryFrame();
     }
 
@@ -25,7 +27,7 @@ public class QueryViewer extends Actor {
              * del frame, consultare DebugFrame().
              */
             setTitle(Config.QUERY_VIEWER_FRAME_TITLE);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             setSize(Config.QUERY_VIEWER_FRAME_SIZE[0], Config.QUERY_VIEWER_FRAME_SIZE[1]);
             setLocationRelativeTo(null); // Posiziona centralmente il frame alla creazione
             setVisible(true);

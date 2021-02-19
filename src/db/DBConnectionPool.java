@@ -44,10 +44,6 @@ public class DBConnectionPool extends Actor {
 		if (db.equals("db_name") || username.equals("db_password") || username.equals("db_password"))
 			new DBConnectionPool().debug(
 					"!Risulta che tu stia usando i parametri di accesso predefiniti. Per connetterti al database, modifica il file di configurazione. In caso di difficoltà, consulta la documentazione");
-		new DBConnectionPool().debug(
-				"!Risulta che tu stia usando i parametri di accesso predefiniti. Per connetterti al database, modifica il file di configurazione. In caso di difficoltà, consulta la documentazione");
-		new DBConnectionPool().debug(
-				"!Risulta che tu stia usando i parametri di accesso predefiniti. Per connetterti al database, modifica il file di configurazione. In caso di difficoltà, consulta la documentazione");
 
 		newConnection = DriverManager.getConnection("jdbc:mysql://" + ip + ":" + port + "/" + db + params, username,
 				password);

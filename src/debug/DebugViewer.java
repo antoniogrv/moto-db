@@ -12,21 +12,21 @@ import java.util.ArrayList;
 import config.Config;
 import debug.DebugFormat.DebugMessageType;
 
-public class DebugFrame extends JFrame {
+public class DebugViewer extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private static JTextPane content;
     private static ArrayList<String> debugContent;
 
-    public DebugFrame() {
+    public DebugViewer() {
         System.out.println("<Config> Modalità di debug attiva");
         /*
          * Preleva i dati di configurazione e crea un JFrame in funzione dei suddetti
          * dati.
          */
-        setTitle(Config.DEBUG_MODE_FRAME_TITLE);
+        setTitle(Config.DEBUG_VIEWER_FRAME_TITLE);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setSize(Config.DEBUG_MODE_FRAME_SIZE[0], Config.DEBUG_MODE_FRAME_SIZE[1]);
+        setSize(Config.DEBUG_VIEWER_FRAME_SIZE[0], Config.DEBUG_VIEWER_FRAME_SIZE[1]);
         setLocation(25, 25);
 
         try {
@@ -43,10 +43,10 @@ public class DebugFrame extends JFrame {
         JPanel outer = new JPanel();
         outer.setLayout(new GridLayout(1, 1));
         outer.setBorder(
-                new EmptyBorder(Config.DEBUG_MODE_FRAME_OUTER_PADDING[0], Config.DEBUG_MODE_FRAME_OUTER_PADDING[1],
-                        Config.DEBUG_MODE_FRAME_OUTER_PADDING[2], Config.DEBUG_MODE_FRAME_OUTER_PADDING[3]));
+                new EmptyBorder(Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[0], Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[1],
+                        Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[2], Config.DEBUG_VIEWER_FRAME_OUTER_PADDING[3]));
 
-        outer.setBackground(Color.decode(Config.DEBUG_MODE_FRAME_OUTER_BACKGROUND));
+        outer.setBackground(Color.decode(Config.DEBUG_VIEWER_FRAME_OUTER_BACKGROUND));
 
         /*
          * Crea il displayer di messaggi, poi impostane il background e la spaziatura
@@ -55,11 +55,11 @@ public class DebugFrame extends JFrame {
         content.setEditable(false);
         content.setContentType("text/html");
 
-        content.setBackground(Color.decode(Config.DEBUG_MODE_FRAME_INNER_BACKGROUND));
+        content.setBackground(Color.decode(Config.DEBUG_VIEWER_FRAME_INNER_BACKGROUND));
 
         content.setBorder(
-                new EmptyBorder(Config.DEBUG_MODE_FRAME_INNER_PADDING[0], Config.DEBUG_MODE_FRAME_INNER_PADDING[1],
-                        Config.DEBUG_MODE_FRAME_INNER_PADDING[2], Config.DEBUG_MODE_FRAME_INNER_PADDING[3]));
+                new EmptyBorder(Config.DEBUG_VIEWER_FRAME_INNER_PADDING[0], Config.DEBUG_VIEWER_FRAME_INNER_PADDING[1],
+                        Config.DEBUG_VIEWER_FRAME_INNER_PADDING[2], Config.DEBUG_VIEWER_FRAME_INNER_PADDING[3]));
 
         /*
          * Popola il frame con il displayer; infine, mostra il DebugFrame generato.
@@ -67,17 +67,14 @@ public class DebugFrame extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(content);
 
-        UIManager.put("ScrollBar.thumb", new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB)));
+        UIManager.put("ScrollBar.thumb", new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB)));
         UIManager.put("ScrollBar.thumbDarkShadow",
-                new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW)));
-        UIManager.put("ScrollBar.thumbShadow",
-                new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW)));
-        UIManager.put("ScrollBar.thumbHighlight",
-                new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT)));
-        UIManager.put("ScrollBar.track", new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_TRACK)));
+                new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB_DARK_SHADOW)));
+        UIManager.put("ScrollBar.thumbShadow", new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB_SHADOW)));
+        UIManager.put("ScrollBar.thumbHighlight", new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB_HIGHLIGHT)));
+        UIManager.put("ScrollBar.track", new ColorUIResource(Color.decode(Config.SCROLLBAR_TRACK)));
 
-        scrollPane
-                .setBorder(BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_BORDER), 2));
+        scrollPane.setBorder(BorderFactory.createLineBorder(Color.decode(Config.SCROLLBAR_BORDER), 2));
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI());
         scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
 

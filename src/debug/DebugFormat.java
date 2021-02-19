@@ -22,15 +22,15 @@ public class DebugFormat {
 
         switch (this.type) {
             case SUCCESS:
-                this.color = Config.DEBUG_MODE_FRAME_COLOR_SUCCESS;
+                this.color = Config.DEBUG_VIEWER_FRAME_COLOR_SUCCESS;
                 break;
 
             case WAIT:
-                this.color = Config.DEBUG_MODE_FRAME_COLOR_WAIT;
+                this.color = Config.DEBUG_VIEWER_FRAME_COLOR_WAIT;
                 break;
 
             case FAIL:
-                this.color = Config.DEBUG_MODE_FRAME_COLOR_FAIL;
+                this.color = Config.DEBUG_VIEWER_FRAME_COLOR_FAIL;
                 break;
         }
     }

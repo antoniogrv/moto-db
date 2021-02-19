@@ -40,7 +40,7 @@ public class MainViewer extends Actor {
             try {
                 setIconImage(ImageIO.read(new File(Config.MOTODB_ICON_PATH)));
             } catch (IOException e) {
-                debug("!Impossibile trovare l'icona. Ricontrolla la configurazione.");
+                debug("!Impossibile trovare l'icona dell'applicazione. Ricontrolla la configurazione.");
             }
 
             /*
@@ -112,7 +112,9 @@ public class MainViewer extends Actor {
             JPanel buttonsContainer = new JPanel();
             JPanel buttonsWrapper = new JPanel();
 
-            buttonsContainer.setBorder(new EmptyBorder(10, -4, -4, -5));
+            buttonsContainer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[0],
+                    Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[1], Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[2],
+                    Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[3]));
             buttonsContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
 
             buttonsWrapper.setLayout(new GridLayout(Config.Operations.size(), 1));
@@ -131,12 +133,16 @@ public class MainViewer extends Actor {
              */
             JPanel resultContainer = new JPanel(new GridLayout(1, 1));
             JPanel resultWrapper = new JPanel(new GridLayout(1, 1));
-            JTextArea result = new JTextArea("Bentornato!");
+            JTextArea result = new JTextArea(Config.MAIN_VIEWER_FRAME_DEFAULT_TEXT);
 
             resultContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
-            resultContainer.setBorder(new EmptyBorder(15, 15, 15, 15));
+            resultContainer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[1],
+                    Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[1], Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[2],
+                    Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[3]));
 
-            result.setBorder(new EmptyBorder(5, 5, 5, 5));
+            result.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_RESULT_INNER_PADDING[0],
+                    Config.MAIN_VIEWER_FRAME_RESULT_INNER_PADDING[1], Config.MAIN_VIEWER_FRAME_RESULT_INNER_PADDING[2],
+                    Config.MAIN_VIEWER_FRAME_RESULT_INNER_PADDING[3]));
             result.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
             result.setForeground(Color.WHITE);
             result.setEditable(false);
@@ -145,7 +151,7 @@ public class MainViewer extends Actor {
             result.setLineWrap(true);
             result.setWrapStyleWord(true);
 
-            if (Config.DEBUG_MODE)
+            if (Config.DEBUG_MODE && Config.LOREM_IPSUM)
                 result.setText(resultDemo());
 
             resultWrapper.add(result);
@@ -163,19 +169,15 @@ public class MainViewer extends Actor {
              */
             JScrollPane scrollPane = new JScrollPane(createResultPanel());
 
-            UIManager.put("ScrollBar.thumb",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB)));
+            UIManager.put("ScrollBar.thumb", new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB)));
             UIManager.put("ScrollBar.thumbDarkShadow",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW)));
-            UIManager.put("ScrollBar.thumbShadow",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW)));
+                    new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB_DARK_SHADOW)));
+            UIManager.put("ScrollBar.thumbShadow", new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB_SHADOW)));
             UIManager.put("ScrollBar.thumbHighlight",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT)));
-            UIManager.put("ScrollBar.track",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_TRACK)));
+                    new ColorUIResource(Color.decode(Config.SCROLLBAR_THUMB_HIGHLIGHT)));
+            UIManager.put("ScrollBar.track", new ColorUIResource(Color.decode(Config.SCROLLBAR_TRACK)));
 
-            scrollPane.setBorder(
-                    BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_BORDER), 2));
+            scrollPane.setBorder(BorderFactory.createLineBorder(Color.decode(Config.SCROLLBAR_BORDER), 2));
             scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI());
             scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
 
@@ -189,9 +191,8 @@ public class MainViewer extends Actor {
              * esclusivamente in debug mode.
              */
             String str = "";
-            int j = 50;
 
-            for (int i = 0; i < j; i++)
+            for (int i = 0; i < Config.LOREM_IPSUM_COUNT; i++)
                 str += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
 
             return str;

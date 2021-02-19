@@ -27,9 +27,9 @@ public class Config {
          * In ogni caso, è possibile connettersi a qualsiasi utente e database .. ..
          * ospitato sul proprio localhost.
          */
-        DB_NAME = "db_name";
-        DB_USERNAME = "db_username";
-        DB_PASSWORD = "db_password";
+        DB_NAME = "db_example";
+        DB_USERNAME = "user";
+        DB_PASSWORD = "psw";
 
         /*
          * [! CONFIGURAZIONE ESSENZIALE]
@@ -65,28 +65,28 @@ public class Config {
          * Impostazioni del frame di debug. Le dimensioni sono espresse in {Larghezza,
          * Altezza}.
          */
-        DEBUG_MODE_FRAME_TITLE = PROJECT_NAME + " - Debug";
-        DEBUG_MODE_FRAME_SIZE = new int[] { 500, 700 };
+        DEBUG_VIEWER_FRAME_TITLE = PROJECT_NAME + " - Debug";
+        DEBUG_VIEWER_FRAME_SIZE = new int[] { 500, 700 };
 
         /*
          * Colori del frame di debug.
          */
-        DEBUG_MODE_FRAME_OUTER_BACKGROUND = "#202124";
-        DEBUG_MODE_FRAME_INNER_BACKGROUND = "#191A1C";
+        DEBUG_VIEWER_FRAME_OUTER_BACKGROUND = "#202124";
+        DEBUG_VIEWER_FRAME_INNER_BACKGROUND = "#191A1C";
 
         /*
          * Colori delle notifiche del frame di debug.
          */
-        DEBUG_MODE_FRAME_COLOR_SUCCESS = "#81EE90";
-        DEBUG_MODE_FRAME_COLOR_FAIL = "#F26F72";
-        DEBUG_MODE_FRAME_COLOR_WAIT = "#E4D357";
+        DEBUG_VIEWER_FRAME_COLOR_SUCCESS = "#81EE90";
+        DEBUG_VIEWER_FRAME_COLOR_FAIL = "#F26F72";
+        DEBUG_VIEWER_FRAME_COLOR_WAIT = "#E4D357";
 
         /*
          * Spaziatura esterna ed interna del frame di debug in pixel. Le dimensioni sono
          * espresse nell'ordine {Top, Left, Bottom, Right}.
          */
-        DEBUG_MODE_FRAME_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
-        DEBUG_MODE_FRAME_INNER_PADDING = new int[] { 12, 12, 12, 12 };
+        DEBUG_VIEWER_FRAME_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
+        DEBUG_VIEWER_FRAME_INNER_PADDING = new int[] { 12, 12, 12, 12 };
 
         /*
          * Impostazioni del frame principale (da qui in poi MainViewer) di selezione
@@ -123,6 +123,11 @@ public class Config {
         MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = "#1d1e21";
 
         /*
+         * Spaziatura interna dei singoli bottoni.
+         */
+        MAIN_VIEWER_FRAME_BUTTON_PADDING = new int[] { 10, -4, -4, -5 };
+
+        /*
          * Impostazioni del carattere dei bottoni laterali del MainFrame.
          */
         MAIN_VIEWER_FRAME_BUTTON_FONT = "Open Sans";
@@ -131,12 +136,25 @@ public class Config {
         /*
          * Impostazioni della scrollbar interna del MainFrame.
          */
-        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-        MAIN_VIEWER_FRAME_SCROLLBAR_TRACK = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
-        MAIN_VIEWER_FRAME_SCROLLBAR_BORDER = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
+        SCROLLBAR_THUMB = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        SCROLLBAR_THUMB_DARK_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        SCROLLBAR_THUMB_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        SCROLLBAR_THUMB_HIGHLIGHT = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        SCROLLBAR_TRACK = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
+        SCROLLBAR_BORDER = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
+
+        /*
+         * Testo predefinito che compare al lancio dell'applicazion.
+         */
+
+        MAIN_VIEWER_FRAME_DEFAULT_TEXT = "Bentornato!";
+
+        /*
+         * Spaziatura interna ed esterna dell'area di testo dei risultati nel MainFrame.
+         */
+
+        MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING = new int[] { 15, 15, 15, 15 };
+        MAIN_VIEWER_FRAME_RESULT_INNER_PADDING = new int[] { 5, 5, 5, 5 };
 
         /*
          * Impostazioni del frame principale (da qui in poi MainViewer) di selezione
@@ -158,6 +176,14 @@ public class Config {
          * specifica nel path sottostante, e non cambiare il path stesso.
          */
         MOTODB_ICON_PATH = "./src/static/icon.png";
+
+        /*
+         * Se abilitato, riempirà l'area di testo dei risultati con un testo
+         * predefinito. Utile per testare il layout. Il COUNT determina la quantità di
+         * frasi da stampare a video.
+         */
+        LOREM_IPSUM = false;
+        LOREM_IPSUM_COUNT = 50;
     }
 
     public static String PROJECT_NAME;
@@ -168,18 +194,18 @@ public class Config {
 
     public static boolean DEBUG_MODE;
 
-    public static String DEBUG_MODE_FRAME_TITLE;
-    public static int[] DEBUG_MODE_FRAME_SIZE;
+    public static String DEBUG_VIEWER_FRAME_TITLE;
+    public static int[] DEBUG_VIEWER_FRAME_SIZE;
 
-    public static String DEBUG_MODE_FRAME_OUTER_BACKGROUND;
-    public static String DEBUG_MODE_FRAME_INNER_BACKGROUND;
+    public static String DEBUG_VIEWER_FRAME_OUTER_BACKGROUND;
+    public static String DEBUG_VIEWER_FRAME_INNER_BACKGROUND;
 
-    public static int[] DEBUG_MODE_FRAME_OUTER_PADDING;
-    public static int[] DEBUG_MODE_FRAME_INNER_PADDING;
+    public static int[] DEBUG_VIEWER_FRAME_OUTER_PADDING;
+    public static int[] DEBUG_VIEWER_FRAME_INNER_PADDING;
 
-    public static String DEBUG_MODE_FRAME_COLOR_SUCCESS;
-    public static String DEBUG_MODE_FRAME_COLOR_FAIL;
-    public static String DEBUG_MODE_FRAME_COLOR_WAIT;
+    public static String DEBUG_VIEWER_FRAME_COLOR_SUCCESS;
+    public static String DEBUG_VIEWER_FRAME_COLOR_FAIL;
+    public static String DEBUG_VIEWER_FRAME_COLOR_WAIT;
 
     public static String MAIN_VIEWER_FRAME_TITLE;
     public static int[] MAIN_VIEWER_FRAME_SIZE;
@@ -196,15 +222,22 @@ public class Config {
     public static String MAIN_VIEWER_FRAME_BUTTON_FONT;
     public static int MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE;
 
+    public static int[] MAIN_VIEWER_FRAME_BUTTON_PADDING;
+
     public static String MAIN_VIEWER_FRAME_RESULT_FONT;
     public static int MAIN_VIEWER_FRAME_RESULT_FONT_SIZE;
 
-    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB;
-    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW;
-    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW;
-    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT;
-    public static String MAIN_VIEWER_FRAME_SCROLLBAR_TRACK;
-    public static String MAIN_VIEWER_FRAME_SCROLLBAR_BORDER;
+    public static String SCROLLBAR_THUMB;
+    public static String SCROLLBAR_THUMB_SHADOW;
+    public static String SCROLLBAR_THUMB_DARK_SHADOW;
+    public static String SCROLLBAR_THUMB_HIGHLIGHT;
+    public static String SCROLLBAR_TRACK;
+    public static String SCROLLBAR_BORDER;
+
+    public static String MAIN_VIEWER_FRAME_DEFAULT_TEXT;
+
+    public static int[] MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING;
+    public static int[] MAIN_VIEWER_FRAME_RESULT_INNER_PADDING;
 
     public static String QUERY_VIEWER_FRAME_TITLE;
     public static int[] QUERY_VIEWER_FRAME_SIZE;
@@ -212,6 +245,9 @@ public class Config {
     public static boolean DARK_MODE;
 
     public static String MOTODB_ICON_PATH;
+
+    public static boolean LOREM_IPSUM;
+    public static int LOREM_IPSUM_COUNT;
 
     public static ArrayList<Operation> Operations = new ArrayList<Operation>();
 
