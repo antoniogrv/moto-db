@@ -1,8 +1,9 @@
 package config;
 
 import java.util.*;
+import endpoint.Actor;
 
-public class Config {
+public class Config extends Actor {
     /*
      * Modifica questo file per generare la tua GUI.
      */
