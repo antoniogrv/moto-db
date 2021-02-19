@@ -69,7 +69,7 @@ public class Config {
         * Le dimensioni sono espresse in {Larghezza, Altezza}.
         */
         DEBUG_MODE_FRAME_TITLE = "Debug Mode";
-        DEBUG_MODE_FRAME_SIZE = new int[]{500, 400};
+        DEBUG_MODE_FRAME_SIZE = new int[]{550, 375};
         
         /*
         * Colori del frame di debug.
@@ -90,6 +90,26 @@ public class Config {
         */
         DEBUG_MODE_OUTER_PADDING = new int[]{8, 8, 8, 8};
         DEBUG_MODE_INNER_PADDING = new int[]{12, 12, 12, 12};
+
+        /*
+        * Impostazioni del frame principale (da qui in poi MainViewer) di selezione delle operazioni.
+        * Le dimensioni sono espresse in {Larghezza, Altezza}.
+        */
+        MAIN_VIEWER_FRAME_TITLE = "Il mio progetto";
+        MAIN_VIEWER_FRAME_SIZE = new int[]{650, 550};
+        
+        /*
+        * Colori del MainViewer.
+        */
+        MAIN_VIEWER_FRAME_OUTER_BACKGROUND = "#202124";
+        MAIN_VIEWER_FRAME_INNER_BACKGROUND = "#191A1C";
+
+        /*
+        * Spaziatura esterna ed interna del frame di debug in pixel.
+        * Le dimensioni sono espresse nell'ordine {Top, Left, Bottom, Right}.
+        */
+        MAIN_VIEWER_OUTER_PADDING = new int[]{8, 8, 8, 8};
+        MAIN_VIEWER_INNER_PADDING = new int[]{12, 12, 12, 12};
 
         /*
          * Abilita la colorazione scura della GUI. 
@@ -125,6 +145,15 @@ public class Config {
     public static String DEBUG_MODE_COLOR_SUCCESS;
     public static String DEBUG_MODE_COLOR_FAIL;
     public static String DEBUG_MODE_COLOR_WAIT;
+
+    public static String MAIN_VIEWER_FRAME_TITLE;
+    public static int[] MAIN_VIEWER_FRAME_SIZE;
+
+    public static String MAIN_VIEWER_FRAME_OUTER_BACKGROUND;
+    public static String MAIN_VIEWER_FRAME_INNER_BACKGROUND;
+
+    public static int[] MAIN_VIEWER_OUTER_PADDING;
+    public static int[] MAIN_VIEWER_INNER_PADDING;
 
     public static boolean DARK_MODE;
 
