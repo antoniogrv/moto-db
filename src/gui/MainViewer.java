@@ -73,7 +73,8 @@ public class MainViewer extends Actor {
             button.addMouseListener(new ButtonListener());
 
             label.setForeground(Color.WHITE);
-            label.setFont(new Font("Open Sans", Font.BOLD, 14));
+            label.setFont(new Font(Config.MAIN_VIEWER_FRAME_BUTTON_FONT, Font.BOLD,
+                    Config.MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE));
 
             button.add(label);
 
@@ -94,8 +95,9 @@ public class MainViewer extends Actor {
 
             outer.setLayout(new GridLayout(1, 1));
             outer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_OUTER_BACKGROUND));
-            outer.setBorder(new EmptyBorder(Config.DEBUG_MODE_OUTER_PADDING[0], Config.DEBUG_MODE_OUTER_PADDING[1],
-                    Config.DEBUG_MODE_OUTER_PADDING[2], Config.DEBUG_MODE_OUTER_PADDING[3]));
+            outer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_OUTER_PADDING[0],
+                    Config.MAIN_VIEWER_FRAME_OUTER_PADDING[1], Config.MAIN_VIEWER_FRAME_OUTER_PADDING[2],
+                    Config.MAIN_VIEWER_FRAME_OUTER_PADDING[3]));
 
             outer.add(createScrollPane(), BorderLayout.CENTER);
 
@@ -138,7 +140,8 @@ public class MainViewer extends Actor {
             result.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
             result.setForeground(Color.WHITE);
             result.setEditable(false);
-            result.setFont(new Font("Open Sans", Font.PLAIN, 14));
+            result.setFont(new Font(Config.MAIN_VIEWER_FRAME_RESULT_FONT, Font.PLAIN,
+                    Config.MAIN_VIEWER_FRAME_RESULT_FONT_SIZE));
             result.setLineWrap(true);
             result.setWrapStyleWord(true);
 
@@ -161,18 +164,18 @@ public class MainViewer extends Actor {
             JScrollPane scrollPane = new JScrollPane(createResultPanel());
 
             UIManager.put("ScrollBar.thumb",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB)));
             UIManager.put("ScrollBar.thumbDarkShadow",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW)));
             UIManager.put("ScrollBar.thumbShadow",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW)));
             UIManager.put("ScrollBar.thumbHighlight",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER)));
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT)));
             UIManager.put("ScrollBar.track",
-                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND)));
+                    new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_TRACK)));
 
             scrollPane.setBorder(
-                    BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND), 2));
+                    BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_BORDER), 2));
             scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI());
             scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
 

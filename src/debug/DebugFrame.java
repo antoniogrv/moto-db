@@ -33,51 +33,34 @@ public class DebugFrame extends JFrame {
         }
 
         /*
-        * Crea un JPanel esterno (definito OUTER) per creare un layer di profondità ..
-        * .. per il displayer di messaggi. Inoltre, impostane il background e la spaziatura.
-        */
+         * Crea un JPanel esterno (definito OUTER) per creare un layer di profondità ..
+         * .. per il displayer di messaggi. Inoltre, impostane il background e la
+         * spaziatura.
+         */
         JPanel outer = new JPanel();
         outer.setLayout(new GridLayout(1, 1));
         outer.setBorder(
-            new EmptyBorder(
-                Config.DEBUG_MODE_OUTER_PADDING[0],
-                Config.DEBUG_MODE_OUTER_PADDING[1],
-                Config.DEBUG_MODE_OUTER_PADDING[2],
-                Config.DEBUG_MODE_OUTER_PADDING[3]
-            )
-        );
+                new EmptyBorder(Config.DEBUG_MODE_FRAME_OUTER_PADDING[0], Config.DEBUG_MODE_FRAME_OUTER_PADDING[1],
+                        Config.DEBUG_MODE_FRAME_OUTER_PADDING[2], Config.DEBUG_MODE_FRAME_OUTER_PADDING[3]));
 
-        outer.setBackground( 
-            Color.decode(
-                Config.DEBUG_MODE_FRAME_OUTER_BACKGROUND
-            )
-        );
+        outer.setBackground(Color.decode(Config.DEBUG_MODE_FRAME_OUTER_BACKGROUND));
 
         /*
-        * Crea il displayer di messaggi, poi impostane il background e la spaziatura
-        */
+         * Crea il displayer di messaggi, poi impostane il background e la spaziatura
+         */
         content = new JTextPane();
         content.setEditable(false);
         content.setContentType("text/html");
 
-        content.setBackground(
-            Color.decode(
-                Config.DEBUG_MODE_FRAME_INNER_BACKGROUND
-            )
-        );
+        content.setBackground(Color.decode(Config.DEBUG_MODE_FRAME_INNER_BACKGROUND));
 
         content.setBorder(
-            new EmptyBorder(
-                Config.DEBUG_MODE_INNER_PADDING[0],
-                Config.DEBUG_MODE_INNER_PADDING[1],
-                Config.DEBUG_MODE_INNER_PADDING[2],
-                Config.DEBUG_MODE_INNER_PADDING[3]
-            )
-        );
+                new EmptyBorder(Config.DEBUG_MODE_FRAME_INNER_PADDING[0], Config.DEBUG_MODE_FRAME_INNER_PADDING[1],
+                        Config.DEBUG_MODE_FRAME_INNER_PADDING[2], Config.DEBUG_MODE_FRAME_INNER_PADDING[3]));
 
         /*
-        * Popola il JFrame con il displayer; infine, mostra il Debug Frame generato.
-        */
+         * Popola il JFrame con il displayer; infine, mostra il Debug Frame generato.
+         */
         outer.add(content);
         add(outer, BorderLayout.CENTER);
 
@@ -89,25 +72,24 @@ public class DebugFrame extends JFrame {
     public static void printMessage(String message) {
         DebugMessageType type = DebugMessageType.WAIT;
 
-        switch(message.charAt(0)) {
+        switch (message.charAt(0)) {
             /*
-            * Operazione fallimentare [..]
-            */
+             * Operazione fallimentare [..]
+             */
             case '!':
                 type = DebugMessageType.FAIL;
                 break;
 
             /*
-            * In attesa degli attori [..]
-            * Lo stato di WAIT è considerato quello di default.
-            */
+             * In attesa degli attori [..] Lo stato di WAIT è considerato quello di default.
+             */
             case '?':
                 type = DebugMessageType.WAIT;
                 break;
 
             /*
-            * Operazione effettuata con successo [..]
-            */
+             * Operazione effettuata con successo [..]
+             */
             case ':':
                 type = DebugMessageType.SUCCESS;
                 break;
@@ -120,14 +102,12 @@ public class DebugFrame extends JFrame {
 
         debugContent.add(new DebugFormat(type, message).getText());
 
-        content.setText(
-            getDebugContent()
-        );
+        content.setText(getDebugContent());
     }
 
     private static String getDebugContent() {
         String str = "";
-        for(String x : debugContent)
+        for (String x : debugContent)
             str += x;
         return str;
     }

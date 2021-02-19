@@ -9,6 +9,12 @@ public class Config {
      */
 
     public static void setConfigurations() {
+
+        /*
+         * Definire il nome del proprio progetto. Esempi: "scuola, centro estetico [..]"
+         */
+        PROJECT_NAME = "Il mio progetto";
+
         /*
          * [! CONFIGURAZIONE ESSENZIALE]
          * 
@@ -58,7 +64,7 @@ public class Config {
          * Impostazioni del frame di debug. Le dimensioni sono espresse in {Larghezza,
          * Altezza}.
          */
-        DEBUG_MODE_FRAME_TITLE = "Debug Mode";
+        DEBUG_MODE_FRAME_TITLE = PROJECT_NAME + " - Debug";
         DEBUG_MODE_FRAME_SIZE = new int[] { 550, 375 };
 
         /*
@@ -70,22 +76,22 @@ public class Config {
         /*
          * Colori delle notifiche del frame di debug.
          */
-        DEBUG_MODE_COLOR_SUCCESS = "#81EE90";
-        DEBUG_MODE_COLOR_FAIL = "#F26F72";
-        DEBUG_MODE_COLOR_WAIT = "#E4D357";
+        DEBUG_MODE_FRAME_COLOR_SUCCESS = "#81EE90";
+        DEBUG_MODE_FRAME_COLOR_FAIL = "#F26F72";
+        DEBUG_MODE_FRAME_COLOR_WAIT = "#E4D357";
 
         /*
          * Spaziatura esterna ed interna del frame di debug in pixel. Le dimensioni sono
          * espresse nell'ordine {Top, Left, Bottom, Right}.
          */
-        DEBUG_MODE_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
-        DEBUG_MODE_INNER_PADDING = new int[] { 12, 12, 12, 12 };
+        DEBUG_MODE_FRAME_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
+        DEBUG_MODE_FRAME_INNER_PADDING = new int[] { 12, 12, 12, 12 };
 
         /*
          * Impostazioni del frame principale (da qui in poi MainViewer) di selezione
          * delle operazioni. Le dimensioni sono espresse in {Larghezza, Altezza}.
          */
-        MAIN_VIEWER_FRAME_TITLE = "Il mio progetto";
+        MAIN_VIEWER_FRAME_TITLE = PROJECT_NAME;
         MAIN_VIEWER_FRAME_SIZE = new int[] { 650, 550 };
 
         /*
@@ -98,11 +104,24 @@ public class Config {
          * Spaziatura esterna ed interna del frame di debug in pixel. Le dimensioni sono
          * espresse nell'ordine {Top, Left, Bottom, Right}.
          */
-        MAIN_VIEWER_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
-        MAIN_VIEWER_INNER_PADDING = new int[] { 12, 12, 12, 12 };
+        MAIN_VIEWER_FRAME_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
+        MAIN_VIEWER_FRAME_INNER_PADDING = new int[] { 12, 12, 12, 12 };
+
+        MAIN_VIEWER_FRAME_RESULT_FONT = "Open Sans";
+        MAIN_VIEWER_FRAME_RESULT_FONT_SIZE = 14;
 
         MAIN_VIEWER_FRAME_BUTTON_BACKGROUND = "#191A1C";
         MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = "#1d1e21";
+
+        MAIN_VIEWER_FRAME_BUTTON_FONT = "Open Sans";
+        MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE = 14;
+
+        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+        MAIN_VIEWER_FRAME_SCROLLBAR_TRACK = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
+        MAIN_VIEWER_FRAME_SCROLLBAR_BORDER = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
 
         /*
          * Abilita la colorazione scura della GUI. Impostare a 'false' per usare la
@@ -119,6 +138,8 @@ public class Config {
         MOTODB_ICON_PATH = "./src/static/logo512.png";
     }
 
+    public static String PROJECT_NAME;
+
     public static String DB_NAME;
     public static String DB_USERNAME;
     public static String DB_PASSWORD;
@@ -131,12 +152,12 @@ public class Config {
     public static String DEBUG_MODE_FRAME_OUTER_BACKGROUND;
     public static String DEBUG_MODE_FRAME_INNER_BACKGROUND;
 
-    public static int[] DEBUG_MODE_OUTER_PADDING;
-    public static int[] DEBUG_MODE_INNER_PADDING;
+    public static int[] DEBUG_MODE_FRAME_OUTER_PADDING;
+    public static int[] DEBUG_MODE_FRAME_INNER_PADDING;
 
-    public static String DEBUG_MODE_COLOR_SUCCESS;
-    public static String DEBUG_MODE_COLOR_FAIL;
-    public static String DEBUG_MODE_COLOR_WAIT;
+    public static String DEBUG_MODE_FRAME_COLOR_SUCCESS;
+    public static String DEBUG_MODE_FRAME_COLOR_FAIL;
+    public static String DEBUG_MODE_FRAME_COLOR_WAIT;
 
     public static String MAIN_VIEWER_FRAME_TITLE;
     public static int[] MAIN_VIEWER_FRAME_SIZE;
@@ -144,11 +165,24 @@ public class Config {
     public static String MAIN_VIEWER_FRAME_OUTER_BACKGROUND;
     public static String MAIN_VIEWER_FRAME_INNER_BACKGROUND;
 
-    public static int[] MAIN_VIEWER_OUTER_PADDING;
-    public static int[] MAIN_VIEWER_INNER_PADDING;
+    public static int[] MAIN_VIEWER_FRAME_OUTER_PADDING;
+    public static int[] MAIN_VIEWER_FRAME_INNER_PADDING;
 
     public static String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND;
     public static String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+
+    public static String MAIN_VIEWER_FRAME_BUTTON_FONT;
+    public static int MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE;
+
+    public static String MAIN_VIEWER_FRAME_RESULT_FONT;
+    public static int MAIN_VIEWER_FRAME_RESULT_FONT_SIZE;
+
+    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB;
+    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW;
+    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW;
+    public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT;
+    public static String MAIN_VIEWER_FRAME_SCROLLBAR_TRACK;
+    public static String MAIN_VIEWER_FRAME_SCROLLBAR_BORDER;
 
     public static boolean DARK_MODE;
 
