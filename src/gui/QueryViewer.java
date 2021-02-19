@@ -3,6 +3,7 @@ package gui;
 import endpoint.Actor;
 import endpoint.Operation;
 import javax.swing.*;
+import config.Config;
 
 public class QueryViewer extends Actor {
 
@@ -12,7 +13,6 @@ public class QueryViewer extends Actor {
     public QueryViewer(Operation op, JTextArea result) {
         this.op = op;
         new QueryFrame();
-        debug(":QueryViewer creato con successo per l'operazione");
     }
 
     public class QueryFrame extends JFrame {
@@ -20,8 +20,18 @@ public class QueryViewer extends Actor {
         private static final long serialVersionUID = 1L;
 
         public QueryFrame() {
-            setSize(300, 300);
+            /*
+             * Configurazione di default del MainFrame. Per informazioni relative all'icona
+             * del frame, consultare DebugFrame().
+             */
+            setTitle(Config.QUERY_VIEWER_FRAME_TITLE);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setSize(Config.QUERY_VIEWER_FRAME_SIZE[0], Config.QUERY_VIEWER_FRAME_SIZE[1]);
+            setLocationRelativeTo(null); // Posiziona centralmente il frame alla creazione
             setVisible(true);
+
+            debug("?Operazione selezionata: " + op.getDescription());
+            debug("?Query grezza indicata: " + op.getQuery());
         }
 
     }

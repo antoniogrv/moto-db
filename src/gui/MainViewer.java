@@ -156,7 +156,7 @@ public class MainViewer extends Actor {
             return resultContainer;
         }
 
-        private JScrollPane createScrollPane() {
+        public JScrollPane createScrollPane() {
             /*
              * Routine di stilizzazione della scrollbar. Per stilizzare la scrollbar è stata
              * usata un'API pubblica integrata in Swing, ossia UIManager.
@@ -219,7 +219,9 @@ public class MainViewer extends Actor {
         }
 
         public void mouseClicked(MouseEvent e) {
+            debug("?Richiedo la creazione di un QueryViewer...");
             new QueryViewer(Config.Operations.get(operationId), result);
+            debug(":QueryViewer creato con successo per l'operazione " + (operationId + 1));
         }
 
         public void mouseEntered(MouseEvent e) {

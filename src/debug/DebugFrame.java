@@ -3,6 +3,8 @@ package debug;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class DebugFrame extends JFrame {
         setTitle(Config.DEBUG_MODE_FRAME_TITLE);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setSize(Config.DEBUG_MODE_FRAME_SIZE[0], Config.DEBUG_MODE_FRAME_SIZE[1]);
+        setLocation(25, 25);
 
         try {
             setIconImage(ImageIO.read(new File(Config.MOTODB_ICON_PATH)));
@@ -59,9 +62,26 @@ public class DebugFrame extends JFrame {
                         Config.DEBUG_MODE_FRAME_INNER_PADDING[2], Config.DEBUG_MODE_FRAME_INNER_PADDING[3]));
 
         /*
-         * Popola il JFrame con il displayer; infine, mostra il Debug Frame generato.
+         * Popola il frame con il displayer; infine, mostra il DebugFrame generato.
          */
-        outer.add(content);
+
+        JScrollPane scrollPane = new JScrollPane(content);
+
+        UIManager.put("ScrollBar.thumb", new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB)));
+        UIManager.put("ScrollBar.thumbDarkShadow",
+                new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW)));
+        UIManager.put("ScrollBar.thumbShadow",
+                new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW)));
+        UIManager.put("ScrollBar.thumbHighlight",
+                new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT)));
+        UIManager.put("ScrollBar.track", new ColorUIResource(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_TRACK)));
+
+        scrollPane
+                .setBorder(BorderFactory.createLineBorder(Color.decode(Config.MAIN_VIEWER_FRAME_SCROLLBAR_BORDER), 2));
+        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI());
+        scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI());
+
+        outer.add(scrollPane);
         add(outer, BorderLayout.CENTER);
 
         debugContent = new ArrayList<String>();

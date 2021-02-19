@@ -5,7 +5,8 @@ import endpoint.*;
 
 public class Config {
     /*
-     * Modifica questo file per generare la tua GUI.
+     * Modifica questo file per generare la tua GUI. Non modificare nessun altro
+     * file.
      */
 
     public static void setConfigurations() {
@@ -65,7 +66,7 @@ public class Config {
          * Altezza}.
          */
         DEBUG_MODE_FRAME_TITLE = PROJECT_NAME + " - Debug";
-        DEBUG_MODE_FRAME_SIZE = new int[] { 550, 375 };
+        DEBUG_MODE_FRAME_SIZE = new int[] { 500, 700 };
 
         /*
          * Colori del frame di debug.
@@ -107,21 +108,42 @@ public class Config {
         MAIN_VIEWER_FRAME_OUTER_PADDING = new int[] { 8, 8, 8, 8 };
         MAIN_VIEWER_FRAME_INNER_PADDING = new int[] { 12, 12, 12, 12 };
 
+        /*
+         * Impostazioni del carattere dell'area dei risultati.
+         */
         MAIN_VIEWER_FRAME_RESULT_FONT = "Open Sans";
         MAIN_VIEWER_FRAME_RESULT_FONT_SIZE = 14;
 
+        /*
+         * Colore di background dei bottoni laterali del MainFrame. Il flag 'HOVER' sta
+         * ad indicare il colore di background del bottone selezionato dall'utente col
+         * mouse.
+         */
         MAIN_VIEWER_FRAME_BUTTON_BACKGROUND = "#191A1C";
         MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = "#1d1e21";
 
+        /*
+         * Impostazioni del carattere dei bottoni laterali del MainFrame.
+         */
         MAIN_VIEWER_FRAME_BUTTON_FONT = "Open Sans";
         MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE = 14;
 
+        /*
+         * Impostazioni della scrollbar interna del MainFrame.
+         */
         MAIN_VIEWER_FRAME_SCROLLBAR_THUMB = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
         MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_DARK_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
         MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
         MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
         MAIN_VIEWER_FRAME_SCROLLBAR_TRACK = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
         MAIN_VIEWER_FRAME_SCROLLBAR_BORDER = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
+
+        /*
+         * Impostazioni del frame principale (da qui in poi MainViewer) di selezione
+         * delle operazioni. Le dimensioni sono espresse in {Larghezza, Altezza}.
+         */
+        QUERY_VIEWER_FRAME_TITLE = PROJECT_NAME + " - Operazione";
+        QUERY_VIEWER_FRAME_SIZE = new int[] { 400, 400 };
 
         /*
          * Abilita la colorazione scura della GUI. Impostare a 'false' per usare la
@@ -135,7 +157,7 @@ public class Config {
          * cambiare l'icona, si suggerisce di limitarsi a cambiare l'immagine .png ..
          * specifica nel path sottostante, e non cambiare il path stesso.
          */
-        MOTODB_ICON_PATH = "./src/static/logo512.png";
+        MOTODB_ICON_PATH = "./src/static/icon.png";
     }
 
     public static String PROJECT_NAME;
@@ -183,6 +205,9 @@ public class Config {
     public static String MAIN_VIEWER_FRAME_SCROLLBAR_THUMB_HIGHLIGHT;
     public static String MAIN_VIEWER_FRAME_SCROLLBAR_TRACK;
     public static String MAIN_VIEWER_FRAME_SCROLLBAR_BORDER;
+
+    public static String QUERY_VIEWER_FRAME_TITLE;
+    public static int[] QUERY_VIEWER_FRAME_SIZE;
 
     public static boolean DARK_MODE;
 
