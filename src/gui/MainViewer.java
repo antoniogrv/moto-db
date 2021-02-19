@@ -42,7 +42,7 @@ public class MainViewer extends Actor {
             outer.setLayout(new GridLayout(1, 1));
             outer.setBackground( 
                 Color.decode(
-                    Config.DEBUG_MODE_FRAME_OUTER_BACKGROUND
+                    Config.MAIN_VIEWER_FRAME_OUTER_BACKGROUND
                 )
             );
             outer.setBorder(
@@ -54,53 +54,47 @@ public class MainViewer extends Actor {
                 )
             );
 
-            JPanel inner = new JPanel();
-            inner.setLayout(new BorderLayout());
-        
-            inner.setBackground(
-                Color.decode(
-                    Config.DEBUG_MODE_FRAME_INNER_BACKGROUND
-                )
-            );
-    
-            inner.setBorder(
-                new EmptyBorder(
-                    Config.DEBUG_MODE_INNER_PADDING[0],
-                    Config.DEBUG_MODE_INNER_PADDING[1],
-                    Config.DEBUG_MODE_INNER_PADDING[2],
-                    Config.DEBUG_MODE_INNER_PADDING[3]
-                )
-            );
-
             JPanel buttonsContainer = new JPanel();
+            buttonsContainer.setBorder(new EmptyBorder(-4, -4, -4, -5));
+            buttonsContainer.setBackground(
+                Color.decode(
+                    Config.MAIN_VIEWER_FRAME_BUTTON
+                )
+            );
 
             JPanel buttonsWrapper = new JPanel();
             buttonsWrapper.setLayout(new GridLayout(Config.Operations.size(), 1));
-            buttonsWrapper.setBackground(
-                Color.decode(
-                    Config.DEBUG_MODE_FRAME_INNER_BACKGROUND
-                )
-            );
 
-            for(int i = 0; i < Config.Operations.size(); i++)
-                buttonsWrapper.add(createButton(i+1));
+            for(int i = 0; i < Config.Operations.size(); i++) {
+                JPanel outerButton = new JPanel(new GridLayout(1, 1));
+                JPanel innerButton = createButton(i+1);
+
+                innerButton.setBorder(new EmptyBorder(2, 20, 2, 20));
+                
+                outerButton.add(innerButton);
+
+                buttonsWrapper.add(outerButton);
+            }
 
             buttonsContainer.add(buttonsWrapper);
 
             JPanel resultContainer = new JPanel(new GridLayout(1, 1));
             resultContainer.setBackground( 
                 Color.decode(
-                    Config.DEBUG_MODE_FRAME_INNER_BACKGROUND
+                    Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND
                 )
             );
+
+            /* not here */
+
             JPanel resultWrapper = new JPanel(new GridLayout(1, 1));
             this.result = new JTextArea("something");
             resultContainer.setBorder(
                 new EmptyBorder(
-                    0,
-                    Config.DEBUG_MODE_INNER_PADDING[1],
-                    0,
-                    Config.DEBUG_MODE_INNER_PADDING[3]
+                    15,
+                    15,
+                    15,
+                    15
                 )
             );
             result.setBorder(
@@ -110,15 +104,22 @@ public class MainViewer extends Actor {
                     Config.DEBUG_MODE_INNER_PADDING[2],
                     Config.DEBUG_MODE_INNER_PADDING[3]
                 )
-            );            
+            );
+            
+            result.setBackground(Color.decode(
+                Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND
+            ));
+            result.setForeground(Color.WHITE);
+            result.setEditable(false);
 
             resultWrapper.add(this.result);
             resultContainer.add(resultWrapper);
 
-            inner.add(buttonsContainer, BorderLayout.WEST);
-            inner.add(resultContainer, BorderLayout.CENTER);
+            /* not here */
 
-            outer.add(inner);
+            add(buttonsContainer, BorderLayout.WEST);
+            outer.add(resultContainer, BorderLayout.CENTER);
+
             add(outer, BorderLayout.CENTER);
 
             setLocationRelativeTo(null); // Posiziona centralmente il frame alla creazione
@@ -129,8 +130,18 @@ public class MainViewer extends Actor {
 
         private JPanel createButton(int id) {
             JPanel button = new JPanel();
-            button.add(new JLabel("Operazione " + id));
-            button.setBackground(Color.RED);
+            JLabel label = new JLabel("Operazione " + id);
+
+            label.setForeground(Color.WHITE);
+            label.setFont(new Font("Open Sans", Font.PLAIN, 14));
+
+            button.add(label);
+            button.setBackground( 
+                Color.decode(
+                    Config.DEBUG_MODE_FRAME_OUTER_BACKGROUND
+                )
+            );
+
             return button;
         }
 
