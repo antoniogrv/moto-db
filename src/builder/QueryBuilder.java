@@ -32,11 +32,11 @@ public class QueryBuilder extends Actor {
     }
 
     public void setQuery() {
-        debug("?Valori ottenuti: " + values.size());
         if (!values.isEmpty())
             this.query = injectValues(rawQuery, values);
         else
             this.query = this.rawQuery;
+
         debug(":Query elaborata: " + this.query);
     }
 

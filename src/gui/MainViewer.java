@@ -13,6 +13,7 @@ import java.io.File;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainViewer extends Actor {
 
@@ -20,7 +21,8 @@ public class MainViewer extends Actor {
      * La JTextArea result è l'area di testo in cui verranno stampati i risultati
      * delle query in funzione dell'operazione selezionata.
      */
-    private JTextPane result;
+    private static JTextPane result;
+    private static ArrayList<String> resultContent;
 
     public MainViewer() {
         debug("?Genero l'interfaccia...");
@@ -59,6 +61,8 @@ public class MainViewer extends Actor {
             add(rightSide, BorderLayout.CENTER);
 
             setVisible(true);
+
+            resultContent = new ArrayList<String>();
 
             debug(":MainFrame creato e popolato con successo");
         }
@@ -207,18 +211,28 @@ public class MainViewer extends Actor {
 
     }
 
+    public static void display(String str) {
+        resultContent.add(str);
+
+        String content = "";
+        for (String x : resultContent)
+            content += x + "<br />";
+
+        result.setText(content);
+    }
+
     /*
      * Getter: Result
      */
     public JTextPane getResult() {
-        return this.result;
+        return result;
     }
 
     /*
      * Setter: Result
      */
-    public void setResult(JTextPane result) {
-        this.result = result;
+    public void setResult(JTextPane newResult) {
+        result = newResult;
     }
 
     public class ButtonListener extends MouseAdapter {

@@ -184,13 +184,15 @@ public class Config {
          */
         public static final String MAIN_VIEWER_FRAME_DEFAULT_TEXT = "Bentornato!\n\n";
 
+        public static final String QUERY_VIEWER_FRAME_NO_INPUT_TEXT = "Non sono ammessi campi non compilati!";
         public static final String QUERY_VIEWER_FRAME_NO_INPUT_FONT = DEFAULT_FONT;
         public static final String QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR = DEBUG_VIEWER_FRAME_COLOR_FAIL;
         public static final int QUERY_VIEWER_FRAME_NO_INPUT_FONT_SIZE = DEFAULT_FONT_SIZE;
+
         public static final String QUERY_VIEWER_FRAME_NO_INPUT = "<b><span style='font-size: "
                         + QUERY_VIEWER_FRAME_NO_INPUT_FONT_SIZE + "; font-family:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT
-                        + "; color:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR
-                        + "'>Non sono ammessi campi non compilati!</span></b>\n";
+                        + "; color:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR + "'>" + QUERY_VIEWER_FRAME_NO_INPUT_TEXT
+                        + "</span></b>\n";
 
         /*
          * Spaziatura interna ed esterna dell'area di testo dei risultati nel MainFrame.

@@ -13,27 +13,24 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicScrollBarUI;
-
 import builder.QueryBuilder;
 
 public class QueryViewer extends Actor {
 
-    private JTextPane result;
     private Operation op;
     private QueryBuilder builder;
-    ArrayList<JTextField> inputValues = new ArrayList<JTextField>();
+    private ArrayList<JTextField> inputValues = new ArrayList<JTextField>();
+    private QueryFrame frame;
 
     public QueryViewer(Operation op, JTextPane result) {
-        this.result = result;
         this.op = op;
         this.builder = new QueryBuilder(op.getQuery());
 
         debug("?Tento di prelevare l'operazione richiesta...");
 
-        new QueryFrame();
+        this.frame = new QueryFrame();
     }
 
     public class QueryFrame extends JFrame {
@@ -216,16 +213,17 @@ public class QueryViewer extends Actor {
         public void mouseClicked(MouseEvent e) {
             int given = 0;
 
-            for (JTextField x : inputValues) {
+            for (JTextField x : inputValues)
                 if (!x.getText().isEmpty())
                     given++;
-            }
 
-            if (given == builder.getValuesSize())
+            if (given == builder.getValuesSize()) {
                 builder.setInputValues(inputValues);
-            else {
+                frame.dispose();
+                // new DBHandler() ...
+            } else {
                 debug("!Non sono ammessi campi non compilati");
-                result.setText(Config.QUERY_VIEWER_FRAME_NO_INPUT);
+                MainViewer.display(Config.QUERY_VIEWER_FRAME_NO_INPUT);
             }
 
         }
