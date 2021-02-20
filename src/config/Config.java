@@ -108,6 +108,12 @@ public class Config {
         public static final String DEBUG_VIEWER_FRAME_INNER_BACKGROUND = DARK_INNER;
 
         /*
+         * Configurazione del testo del frame di debug.
+         */
+        public static final String DEBUG_VIEWER_FRAME_FONT = "\"Inconsolata\", monospace";
+        public static final int DEBUG_VIEWER_FRAME_FONT_SIZE = 17;
+
+        /*
          * Colori delle notifiche del frame di debug.
          */
         public static final String DEBUG_VIEWER_FRAME_COLOR_SUCCESS = "#81EE90";
@@ -182,7 +188,7 @@ public class Config {
          * Testi e impostazioni predefinite per i messaggi stampati a schermo. Si invita
          * a consultare la documentazione in caso di dubbio.
          */
-        public static final String MAIN_VIEWER_FRAME_DEFAULT_TEXT = "Bentornato!\n\n";
+        public static final String MAIN_VIEWER_FRAME_DEFAULT_TEXT = "Bentornato!<br />";
 
         public static final String MAIN_VIEWER_FRAME_NO_INPUT_TEXT = "Non sono ammessi campi non compilati!";
 
@@ -193,6 +199,17 @@ public class Config {
         public static final String DISPLAY_REGULAR_FONT = DEFAULT_FONT;
         public static final String DISPLAY_REGULAR_FONT_COLOR = DEFAULT_FONT_COLOR;
         public static final int DISPLAY_REGULAR_FONT_SIZE = DEFAULT_FONT_SIZE;
+
+        public static final String DISPLAY_CODE_FONT = DEBUG_VIEWER_FRAME_FONT;
+        public static final String DISPLAY_CODE_FONT_COLOR = "#AA60FF";
+        public static final int DISPLAY_CODE_FONT_SIZE = 16;
+
+        /*
+         * Determina se stampare pubblicamente o meno la query elaborata dal QueryFrame,
+         * a prescindere dalla modalità di debug
+         */
+
+        public static final boolean DISPLAY_QUERIES = true;
 
         /*
          * Spaziatura interna ed esterna dell'area di testo dei risultati nel MainFrame.

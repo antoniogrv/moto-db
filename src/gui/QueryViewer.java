@@ -6,6 +6,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFrame;
 import config.Config;
+import db.DBHandler;
+
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -148,9 +150,8 @@ public class QueryViewer extends Actor {
 
             ArrayList<String> aliases = builder.getAliases();
 
-            for (int i = builder.getValuesSize() - 1; i >= 0; i--) {
+            for (int i = builder.getValuesSize() - 1; i >= 0; i--)
                 grid.add(createRow(aliases.get(i), inputValues));
-            }
 
             return grid;
         }
@@ -222,8 +223,9 @@ public class QueryViewer extends Actor {
                 frame.dispose();
                 MainViewer.display(":Query lanciata!");
                 // IF public queries..
-                MainViewer.display(builder.getQuery() + "<br />");
-                // new DBHandler() ...
+                if (Config.DISPLAY_QUERIES)
+                    MainViewer.display("#" + builder.getQuery() + "<br />");
+                new DBHandler(builder.getQuery());
             } else {
                 debug("!Non sono ammessi campi non compilati");
                 MainViewer.display("!" + Config.MAIN_VIEWER_FRAME_NO_INPUT_TEXT);

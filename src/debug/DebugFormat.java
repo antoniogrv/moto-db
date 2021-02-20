@@ -41,8 +41,9 @@ public class DebugFormat {
 
     public String getText() {
         String info[] = this.message.split("»");
-        return "<div style='margin-bottom: 6px'><span style='font-family: \"Inconsolata\",monospace; font-size: 12.5px; color: "
-                + this.color + "'><strong>" + info[0].substring(1) + "»</strong> " + info[1] + "</span></div>";
+        return "<div style='margin-bottom: 6px'><span style='font-family: " + Config.DEBUG_VIEWER_FRAME_FONT
+                + "; font-size: " + Config.DEBUG_VIEWER_FRAME_FONT_SIZE + "; color: " + this.color + "'><strong>"
+                + info[0].substring(1) + "»</strong> " + info[1] + "</span></div>";
     }
 
 }

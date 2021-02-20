@@ -64,6 +64,8 @@ public class MainViewer extends Actor {
 
             resultContent = new ArrayList<String>();
 
+            MainViewer.display(Config.MAIN_VIEWER_FRAME_DEFAULT_TEXT);
+
             debug(":MainFrame creato e popolato con successo");
         }
 
@@ -145,8 +147,6 @@ public class MainViewer extends Actor {
             JPanel resultWrapper = new JPanel(new GridLayout(1, 1));
             JTextPane result = new JTextPane();
 
-            result.setText(Config.MAIN_VIEWER_FRAME_DEFAULT_TEXT);
-
             resultContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
             resultContainer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[1],
                     Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[1], Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[2],
@@ -226,6 +226,12 @@ public class MainViewer extends Actor {
                         + str.substring(1) + "</span></b>\n";
                 break;
 
+            case '#':
+                msg += "<b><span style='font-size: " + Config.DISPLAY_CODE_FONT_SIZE + "; font-family:"
+                        + Config.DISPLAY_CODE_FONT + "; color:" + Config.DISPLAY_CODE_FONT_COLOR + "'>"
+                        + str.substring(1) + "</span></b>\n";
+                break;
+
             default:
                 msg += "<span style='font-size: " + Config.DISPLAY_REGULAR_FONT_SIZE + "; font-family:"
                         + Config.DISPLAY_REGULAR_FONT + "; color:" + Config.DISPLAY_REGULAR_FONT_COLOR + "'>" + str
@@ -278,6 +284,9 @@ public class MainViewer extends Actor {
         public void mouseClicked(MouseEvent e) {
             debug("?Richiedo la creazione di un QueryViewer...");
             new QueryViewer(Config.Operations.get(operationId), result);
+
+            MainViewer.display(":Hai selezionato l'operazione " + (operationId - 1) + "<br />");
+
             debug(":QueryViewer creato con successo per l'operazione " + (operationId + 1));
         }
 
