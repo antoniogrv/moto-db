@@ -11,14 +11,13 @@ public class QueryBuilder extends Actor {
     private String query;
     private int valuesSize;
     private ArrayList<String> values;
-    private ArrayList<JTextField> inputValues;
     private String rawQuery;
 
     public QueryBuilder(String rawQuery) {
         this.rawQuery = rawQuery;
         this.valuesSize = setValuesSize(rawQuery);
         this.values = new ArrayList<String>();
-        this.inputValues = new ArrayList<JTextField>();
+        new ArrayList<JTextField>();
     }
 
     public void setInputValues(ArrayList<JTextField> inputValues) {

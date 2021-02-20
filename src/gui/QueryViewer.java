@@ -221,10 +221,11 @@ public class QueryViewer extends Actor {
             if (given == builder.getValuesSize()) {
                 builder.setInputValues(inputValues);
                 frame.dispose();
-                MainViewer.display(":Query lanciata!");
-                // IF public queries..
+                MainViewer.display("Query lanciata!");
+
                 if (Config.DISPLAY_QUERIES)
                     MainViewer.display("#" + builder.getQuery() + "<br />");
+
                 new DBHandler(builder.getQuery());
             } else {
                 debug("!Non sono ammessi campi non compilati");

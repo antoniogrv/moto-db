@@ -162,9 +162,6 @@ public class MainViewer extends Actor {
                     Config.MAIN_VIEWER_FRAME_RESULT_FONT_SIZE));
             result.setContentType("text/html");
 
-            if (Config.DEBUG_MODE && Config.LOREM_IPSUM)
-                result.setText(resultDemo());
-
             resultWrapper.add(result);
             resultContainer.add(resultWrapper);
 
@@ -195,20 +192,6 @@ public class MainViewer extends Actor {
             return scrollPane;
         }
 
-        private String resultDemo() {
-            /*
-             * Questa funzione permette di riempire l'area di testo con contenuto
-             * predefinito per finalità di testing. L'area sarà popolata solo ed
-             * esclusivamente in debug mode.
-             */
-            String str = "";
-
-            for (int i = 0; i < Config.LOREM_IPSUM_COUNT; i++)
-                str += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
-
-            return str;
-        }
-
     }
 
     public static void display(String str) {
@@ -221,8 +204,8 @@ public class MainViewer extends Actor {
                 break;
 
             case ':':
-                msg += "<b><span style='font-size: " + Config.DISPLAY_REGULAR_FONT_SIZE + "; font-family:"
-                        + Config.DISPLAY_REGULAR_FONT + "; color:" + Config.DISPLAY_REGULAR_FONT_COLOR + "'>"
+                msg += "<b><span style='font-size: " + Config.DISPLAY_SUCCESS_FONT_SIZE + "; font-family:"
+                        + Config.DISPLAY_SUCCESS_FONT + "; color:" + Config.DISPLAY_SUCCESS_FONT_COLOR + "'>"
                         + str.substring(1) + "</span></b>\n";
                 break;
 
@@ -230,6 +213,10 @@ public class MainViewer extends Actor {
                 msg += "<b><span style='font-size: " + Config.DISPLAY_CODE_FONT_SIZE + "; font-family:"
                         + Config.DISPLAY_CODE_FONT + "; color:" + Config.DISPLAY_CODE_FONT_COLOR + "'>"
                         + str.substring(1) + "</span></b>\n";
+                break;
+
+            case '|':
+                msg += str.substring(1);
                 break;
 
             default:
@@ -285,7 +272,7 @@ public class MainViewer extends Actor {
             debug("?Richiedo la creazione di un QueryViewer...");
             new QueryViewer(Config.Operations.get(operationId), result);
 
-            MainViewer.display(":Hai selezionato l'operazione " + (operationId + 1) + "<br />");
+            MainViewer.display(":<b>Hai selezionato l'operazione " + (operationId + 1) + "</b><br />");
 
             debug(":QueryViewer creato con successo per l'operazione " + (operationId + 1));
         }

@@ -34,9 +34,9 @@ public class Config {
          * In ogni caso, è possibile connettersi a qualsiasi utente e database .. ..
          * ospitato sul proprio localhost.
          */
-        public static final String DB_NAME = "db_example";
-        public static final String DB_USERNAME = "user";
-        public static final String DB_PASSWORD = "psw";
+        public static final String DB_NAME = "example_database";
+        public static final String DB_USERNAME = "example_username";
+        public static final String DB_PASSWORD = "example_password";
 
         /*
          * Questo software, per funzionare correttamente, ha bisogno di query -- da qui
@@ -51,17 +51,23 @@ public class Config {
          * di consultare la documentazione.
          */
         public static ArrayList<Operation> Operations = new ArrayList<Operation>(Arrays.asList(
-                        new Operation("SELECT * FROM professori", "Seleziona tutti i professori della scuola."),
-                        new Operation("SELECT nome FROM studente WHERE matricola = {Alias}",
-                                        "Seleziona il nome dello studente selezionato tramite matricola."),
-                        new Operation("SELECT nome, cognome FROM studente WHERE sezione = {Prima} AND anno = {Dopo}",
-                                        "Seleziona nome e cognome di tutti gli studenti di una determinata classe.")));
+                        // Operazione 1
+                        new Operation("SELECT * FROM example_table", "Seleziona tutti i dati di esempio."),
+                        // Operazione 2
+                        new Operation("SELECT nome FROM example_table WHERE id = {ID Esempio}",
+                                        "Seleziona solo la colonna 'nome' dai dati d'esempio, in base all'ID."),
+                        // Operazione 3
+                        new Operation("SELECT id FROM example_table WHERE nome = \"{Nome}\" AND cognome = \"{Cognome}\"",
+                                        "Seleziona solo la colonna 'id' dai dati d'esempio, in base al nome e al cognome."),
+                        // Operazione 4
+                        new Operation("DELETE FROM example_table", "Svuota la tabella d'esempio.")));
 
         /*
-         * Attiva o disattiva la modalità di debug.La modalità di debug abiliterà la*
-         * generazion di un frame shell-like per visualizzare costantemente le azioni*
-         * degli attori del software.** Si consiglia di disattivare l'opzione alla
-         * discussione del progetto.
+         * Attiva o disattiva la modalità di debug.La modalità di debug abiliterà la
+         * generazion di un frame shell-like per visualizzare costantemente le azioni
+         * degli attori del software.
+         * 
+         * Si consiglia di disattivare l'opzione alla discussione del progetto.
          */
         public static final boolean DEBUG_MODE = true;
 
@@ -95,8 +101,8 @@ public class Config {
         public static final String LIGHT_OUTER_LIGHTER = "#FFFFFF";
 
         /*
-         * Impostazioni del frame di debug. Le dimensioni sono espresse in {Larghezza,
-         * Altezza}.
+         * Impostazioni del frame di debug. Le dimensioni dei frame sono sempre espresse
+         * in {Larghezza, Altezza}.
          */
         public static final String DEBUG_VIEWER_FRAME_TITLE = PROJECT_NAME + " - Debug";
         public static final int[] DEBUG_VIEWER_FRAME_SIZE = new int[] { 500, 700 };
@@ -200,6 +206,10 @@ public class Config {
         public static final String DISPLAY_REGULAR_FONT_COLOR = DEFAULT_FONT_COLOR;
         public static final int DISPLAY_REGULAR_FONT_SIZE = DEFAULT_FONT_SIZE;
 
+        public static final String DISPLAY_SUCCESS_FONT = DEFAULT_FONT;
+        public static final String DISPLAY_SUCCESS_FONT_COLOR = DEBUG_VIEWER_FRAME_COLOR_SUCCESS;
+        public static final int DISPLAY_SUCCESS_FONT_SIZE = DEFAULT_FONT_SIZE;
+
         public static final String DISPLAY_CODE_FONT = DEBUG_VIEWER_FRAME_FONT;
         public static final String DISPLAY_CODE_FONT_COLOR = "#AA60FF";
         public static final int DISPLAY_CODE_FONT_SIZE = 16;
@@ -208,13 +218,11 @@ public class Config {
          * Determina se stampare pubblicamente o meno la query elaborata dal QueryFrame,
          * a prescindere dalla modalità di debug
          */
-
         public static final boolean DISPLAY_QUERIES = true;
 
         /*
          * Spaziatura interna ed esterna dell'area di testo dei risultati nel MainFrame.
          */
-
         public static final int[] MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING = new int[] { 15, 15, 15, 15 };
         public static final int[] MAIN_VIEWER_FRAME_RESULT_INNER_PADDING = new int[] { 5, 5, 5, 5 };
 
@@ -253,7 +261,6 @@ public class Config {
         /*
          * Famiglie dei caratteri usati nel QueryFrame.
          */
-
         public static final String QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT = DEFAULT_FONT;
         public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT = DEFAULT_FONT;
         public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT = DEFAULT_FONT;
@@ -261,7 +268,6 @@ public class Config {
         /*
          * Colori dei caratteri usati nel QueryFrame.
          */
-
         public static final String QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT_COLOR = DEFAULT_FONT_COLOR;
         public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT_COLOR = DEFAULT_FONT_COLOR;
         public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR = DEFAULT_FONT_COLOR;
@@ -297,7 +303,9 @@ public class Config {
 
         /*
          * Abilita la colorazione scura della GUI. Impostare a 'false' per usare la
-         * modalità chiara.
+         * modalità chiara. Nota: nella 1.00 non è disponibile una colorazione non-dark.
+         * Ciò significa che cambiare il seguente parametro non produrrà, almeno per
+         * ora, alcun effetto.
          */
         public static final boolean DARK_MODE = true;
 
@@ -311,7 +319,8 @@ public class Config {
         /*
          * Se abilitato, riempirà l'area di testo dei risultati con un testo
          * predefinito. Utile per testare il layout. Il COUNT determina la quantità di
-         * frasi da stampare a video.
+         * frasi da stampare a video. Nota: questa funzione non è inclusa nella versione
+         * pubblica del software.
          */
         public static final boolean LOREM_IPSUM = false;
         public static final int LOREM_IPSUM_COUNT = 50;
