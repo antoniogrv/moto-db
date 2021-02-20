@@ -53,7 +53,9 @@ public class Config {
         public static ArrayList<Operation> Operations = new ArrayList<Operation>(Arrays.asList(
                         new Operation("SELECT * FROM professori", "Seleziona tutti i professori della scuola."),
                         new Operation("SELECT nome FROM studente WHERE matricola = {Alias}",
-                                        "Seleziona il nome dello studente selezionato tramite matricola.")));
+                                        "Seleziona il nome dello studente selezionato tramite matricola."),
+                        new Operation("SELECT nome, cognome FROM studente WHERE sezione = {Sezione} AND anno = {Anno}",
+                                        "Seleziona nome e cognome di tutti gli studenti di una determinata classe.")));
 
         /*
          * Attiva o disattiva la modalità di debug.La modalità di debug abiliterà la*

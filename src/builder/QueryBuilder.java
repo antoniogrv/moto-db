@@ -8,25 +8,37 @@ import endpoint.Actor;
 
 public class QueryBuilder extends Actor {
 
-    private String rawQuery;
     private String query;
     private int valuesSize;
     private String[] values;
+    private ArrayList<JTextField> inputValues;
+    private String rawQuery;
 
-    public QueryBuilder(String rawQuery, ArrayList<JTextField> inputValues) {
+    public QueryBuilder(String rawQuery) {
         this.rawQuery = rawQuery;
-        this.valuesSize = getValuesSize(rawQuery);
+        this.valuesSize = setValuesSize(rawQuery);
         this.values = new String[this.valuesSize];
+        this.inputValues = new ArrayList<JTextField>();
 
-        for (JTextField x : inputValues)
-            values[values.length] = x.getText();
-
-        this.query = injectValues(rawQuery, values);
+        // this.query = injectValues(rawQuery, values);
 
         // new DBHandler(query);
     }
 
-    public static int getValuesSize(String query) {
+    public void setInputValues(ArrayList<JTextField> inputValues) {
+        for (JTextField x : inputValues)
+            values[values.length] = x.getText();
+    }
+
+    public int getValuesSize() {
+        return this.valuesSize;
+    }
+
+    public String getQuery() {
+        return this.query;
+    }
+
+    public int setValuesSize(String query) {
         int values = 0;
 
         if (query.contains("{")) {
@@ -47,7 +59,7 @@ public class QueryBuilder extends Actor {
 
     }
 
-    public static int[] parseQuery(String query) {
+    public int[] parseQuery(String query) {
         int[] values = new int[2];
 
         if (query.contains("{")) {
@@ -70,16 +82,16 @@ public class QueryBuilder extends Actor {
 
     }
 
-    public static ArrayList<String> getAliases(String query) {
-        StringBuffer buffer = new StringBuffer(query);
-        String temp = query;
+    public ArrayList<String> getAliases() {
+        StringBuffer buffer = new StringBuffer(this.rawQuery);
+        String temp = this.rawQuery;
 
         ArrayList<String> aliases = new ArrayList<String>();
 
         int[] x = new int[2];
 
         while ((x = parseQuery(temp)) != null) {
-            aliases.add(query.substring(x[0] + 1, x[1]));
+            aliases.add(this.rawQuery.substring(x[0] + 1, x[1]));
             buffer.replace(x[0], x[1] + 1, "");
             temp = buffer.toString();
         }
@@ -87,7 +99,7 @@ public class QueryBuilder extends Actor {
         return aliases;
     }
 
-    public static String injectValues(String query, String[] values) {
+    public String injectValues(String query, String[] values) {
         StringBuffer buffer = new StringBuffer(query);
         String temp = query;
 

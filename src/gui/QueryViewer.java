@@ -15,15 +15,23 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicScrollBarUI;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
+import builder.QueryBuilder;
 
 public class QueryViewer extends Actor {
 
     private JTextArea result;
     private Operation op;
+    private QueryBuilder builder;
 
     public QueryViewer(Operation op, JTextArea result) {
-        this.op = op;
         this.result = result;
+        this.op = op;
+        System.out.println(op.getQuery());
+        this.builder = new QueryBuilder(op.getQuery());
 
         debug("?Tento di prelevare l'operazione richiesta...");
 
@@ -60,14 +68,18 @@ public class QueryViewer extends Actor {
         }
 
         public JPanel createOperationDescriptionPanel() {
-            JPanel panel = new JPanel();
+            JPanel panel = new JPanel(new GridLayout(1, 1));
             panel.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_BACKGROUND));
 
-            JLabel operationDescription = new JLabel(op.getDescription());
+            JTextPane operationDescription = new JTextPane();
+            operationDescription.setContentType("text/html");
+            operationDescription.setText(
+                    "<center><b><span style='font-size:" + Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_SIZE
+                            + "; font-family:" + Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT + "; color: "
+                            + Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR + "; '>" + op.getDescription()
+                            + "</span></b></center>");
             operationDescription
-                    .setForeground(Color.decode(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR));
-            operationDescription.setFont(new Font(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT, Font.BOLD,
-                    Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_SIZE));
+                    .setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_BACKGROUND));
             operationDescription.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[0],
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[1],
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[2],
@@ -127,14 +139,14 @@ public class QueryViewer extends Actor {
             JPanel grid = new JPanel(new GridLayout(10, 2));
             grid.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_GRID_BACKGROUND));
 
-            for (int i = 0; i < 10; i++) {
-                grid.add(createRow());
+            for (int i = 0; i < builder.getValuesSize(); i++) {
+                grid.add(createRow(builder.getAliases().get(i)));
             }
 
             return grid;
         }
 
-        public JPanel createRow() {
+        public JPanel createRow(String alias) {
             /*
              * Gerarchia: Outer Row > Inner Row {Label, Field Container > Field}
              */
@@ -144,7 +156,7 @@ public class QueryViewer extends Actor {
             JPanel fieldContainer = new JPanel(new GridLayout(1, 1));
             JTextField field = new JTextField();
 
-            JLabel label = new JLabel("Campo", SwingConstants.CENTER);
+            JLabel label = new JLabel(alias, SwingConstants.CENTER);
 
             outerRow.setBackground(Color.decode(Config.QUERY_VIEWER_ROW_OUTER_ROW_BACKGROUND));
             outerRow.setBorder(new EmptyBorder(5, 0, 5, 0));
@@ -196,7 +208,8 @@ public class QueryViewer extends Actor {
     public class EnterButtonListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
-            // Something...
+            System.out.println("Qui si deve avviare il DBHandler");
+            System.out.println("Passare all'handler la query completa da QueryBuilder");
         }
 
         public void mouseEntered(MouseEvent e) {
