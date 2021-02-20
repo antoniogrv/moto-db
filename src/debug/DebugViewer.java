@@ -81,8 +81,8 @@ public class DebugViewer extends Actor {
         public JScrollPane createScrollPane() {
             /*
              * Stilizza la scrollbar seguendo le impostazioni definite nel file di
-             * configurazione. Si noti che la scrollbar del MainFrame e quella del
-             * DebugFrame possono differire stilisticamente.
+             * configurazione. Si noti che le scrollbar del MainFrame, del QueryFrame e del
+             * DebugFrame non possono differire stilisticamente.
              */
             JScrollPane scrollPane = new JScrollPane(content);
 
