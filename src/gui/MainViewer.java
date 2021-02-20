@@ -23,7 +23,7 @@ public class MainViewer extends Actor {
     private JTextArea result;
 
     public MainViewer() {
-        debug("?Genero il MainFrame...");
+        debug("?Genero l'interfaccia...");
         new MainFrame();
     }
 
@@ -72,7 +72,9 @@ public class MainViewer extends Actor {
             JLabel label = new JLabel("Operazione " + operationId);
 
             button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            button.setBorder(new EmptyBorder(2, 20, 2, 20));
+            button.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_INNER_BUTTON_PADDING[0],
+                    Config.MAIN_VIEWER_FRAME_INNER_BUTTON_PADDING[1], Config.MAIN_VIEWER_FRAME_INNER_BUTTON_PADDING[2],
+                    Config.MAIN_VIEWER_FRAME_INNER_BUTTON_PADDING[3]));
             button.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
             button.addMouseListener(new ButtonListener(operationId - 1));
 
@@ -116,9 +118,9 @@ public class MainViewer extends Actor {
             JPanel buttonsContainer = new JPanel();
             JPanel buttonsWrapper = new JPanel();
 
-            buttonsContainer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[0],
-                    Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[1], Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[2],
-                    Config.MAIN_VIEWER_FRAME_BUTTON_PADDING[3]));
+            buttonsContainer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_OUTER_BUTTON_PADDING[0],
+                    Config.MAIN_VIEWER_FRAME_OUTER_BUTTON_PADDING[1], Config.MAIN_VIEWER_FRAME_OUTER_BUTTON_PADDING[2],
+                    Config.MAIN_VIEWER_FRAME_OUTER_BUTTON_PADDING[3]));
             buttonsContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_BUTTON_BACKGROUND));
 
             buttonsWrapper.setLayout(new GridLayout(Config.Operations.size(), 1));

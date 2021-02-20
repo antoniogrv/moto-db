@@ -155,9 +155,10 @@ public class Config {
     public static final String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = DARK_OUTER_LIGHTER;
 
     /*
-     * Spaziatura interna dei singoli bottoni.
+     * Spaziatura interna dei singoli bottoni nel MainFrame.
      */
-    public static final int[] MAIN_VIEWER_FRAME_BUTTON_PADDING = new int[] { 10, -4, -4, -5 };
+    public static final int[] MAIN_VIEWER_FRAME_OUTER_BUTTON_PADDING = new int[] { 10, -4, -4, -5 };
+    public static final int[] MAIN_VIEWER_FRAME_INNER_BUTTON_PADDING = new int[] { 2, 20, 2, 20 };
 
     /*
      * Impostazioni del carattere dei bottoni laterali del MainFrame.
