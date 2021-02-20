@@ -68,8 +68,24 @@ public class Config {
      * [!] CONFIGURAZIONI NON ESSENZIALI
      * 
      * Se non sei interessato a cambiare l'aspetto del programma, ignora tutto ciò
-     * che è configurato di seguente.
+     * che è elencato di seguente.
      */
+
+    /*
+     * Famiglie di caratteri usati nelle stampe a video. Include il colore e la
+     * dimensione predefinita.
+     */
+
+    public static final String DEFAULT_FONT = "Open Sans";
+    public static final String DEFAULT_FONT_COLOR = "#FFFFFF";
+    public static final int DEFAULT_FONT_SIZE = 15;
+
+    /*
+     * Colori principali della Dark Mode.
+     */
+    public static final String DARK_OUTER = "#202124";
+    public static final String DARK_INNER = "#191A1C";
+    public static final String DARK_OUTER_LIGHTER = "#1D1E21";
 
     /*
      * Impostazioni del frame di debug. Le dimensioni sono espresse in {Larghezza,
@@ -81,8 +97,8 @@ public class Config {
     /*
      * Colori del frame di debug.
      */
-    public static final String DEBUG_VIEWER_FRAME_OUTER_BACKGROUND = "#202124";
-    public static final String DEBUG_VIEWER_FRAME_INNER_BACKGROUND = "#191A1C";
+    public static final String DEBUG_VIEWER_FRAME_OUTER_BACKGROUND = DARK_OUTER;
+    public static final String DEBUG_VIEWER_FRAME_INNER_BACKGROUND = DARK_INNER;
 
     /*
      * Colori delle notifiche del frame di debug.
@@ -108,8 +124,8 @@ public class Config {
     /*
      * Colori del MainFrame.
      */
-    public static final String MAIN_VIEWER_FRAME_OUTER_BACKGROUND = "#1d1e21";
-    public static final String MAIN_VIEWER_FRAME_INNER_BACKGROUND = "#191A1C";
+    public static final String MAIN_VIEWER_FRAME_OUTER_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String MAIN_VIEWER_FRAME_INNER_BACKGROUND = DARK_INNER;
 
     /*
      * Spaziatura esterna ed interna del frame di debug in pixel. Le dimensioni sono
@@ -121,16 +137,16 @@ public class Config {
     /*
      * Impostazioni del carattere dell'area dei risultati.
      */
-    public static final String MAIN_VIEWER_FRAME_RESULT_FONT = "Open Sans";
-    public static final int MAIN_VIEWER_FRAME_RESULT_FONT_SIZE = 14;
+    public static final String MAIN_VIEWER_FRAME_RESULT_FONT = DEFAULT_FONT;
+    public static final int MAIN_VIEWER_FRAME_RESULT_FONT_SIZE = DEFAULT_FONT_SIZE;
 
     /*
      * Colore di background dei bottoni laterali del MainFrame. Il flag 'HOVER' sta
      * ad indicare il colore di background del bottone selezionato dall'utente col
      * mouse.
      */
-    public static final String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND = "#191A1C";
-    public static final String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = "#1d1e21";
+    public static final String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND = DARK_INNER;
+    public static final String MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = DARK_OUTER_LIGHTER;
 
     /*
      * Spaziatura interna dei singoli bottoni.
@@ -140,8 +156,8 @@ public class Config {
     /*
      * Impostazioni del carattere dei bottoni laterali del MainFrame.
      */
-    public static final String MAIN_VIEWER_FRAME_BUTTON_FONT = "Open Sans";
-    public static final int MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE = 14;
+    public static final String MAIN_VIEWER_FRAME_BUTTON_FONT = DEFAULT_FONT;
+    public static final int MAIN_VIEWER_FRAME_BUTTON_FONT_SIZE = DEFAULT_FONT_SIZE;
 
     /*
      * Impostazioni della scrollbar interna del MainFrame.
@@ -176,8 +192,8 @@ public class Config {
     /*
      * Colori del QueryFrame.
      */
-    public static final String QUERY_VIEWER_FRAME_OUTER_BACKGROUND = "#1d1e21";
-    public static final String QUERY_VIEWER_FRAME_INNER_BACKGROUND = "#191A1C";
+    public static final String QUERY_VIEWER_FRAME_OUTER_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_FRAME_INNER_BACKGROUND = DARK_INNER;
 
     /*
      * Impostazioni per la spaziatura interna ed esterna del QueryFrame generato dal
@@ -193,48 +209,46 @@ public class Config {
      * spaziatura della descrizione.
      */
     public static final int[] QUERY_VIEWER_INNER_FIELD_PADDING = new int[] { 0, 0, 0, 0 };
-    public static final int[] QUERY_VIEWER_FIELD_INNER_ROW_PADDING = new int[] { 0, 0, 0, 0 };
-    public static final int[] QUERY_VIEWER_FIELD_OUTER_ROW_PADDING = new int[] { 0, 0, 0, 0 };
-    public static final int[] QUERY_VIEWER_FRAME_BUTTON_PADDING = new int[] { 0, 0, 0, 0 };
-    public static final int[] QUERY_VIEWER_OUTER_FIELD_PADDING = new int[] { 0, 0, 0, 0 };
-    public static final int[] QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING = new int[] { 0, 0, 0, 0 };
+    public static final int[] QUERY_VIEWER_FIELD_INNER_ROW_PADDING = new int[] { 10, 5, 10, 5 };
+    public static final int[] QUERY_VIEWER_FIELD_OUTER_ROW_PADDING = new int[] { 5, 0, 5, 0 };
+    public static final int[] QUERY_VIEWER_FRAME_BUTTON_PADDING = new int[] { 2, 20, 2, 20 };
+    public static final int[] QUERY_VIEWER_OUTER_FIELD_PADDING = new int[] { 0, 0, 0, 10 };
+    public static final int[] QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING = new int[] { 5, 0, 5, 0 };
 
     /*
      * Famiglie dei caratteri usati nel QueryFrame.
      */
 
-    public static final String QUERY_VIEWER_FIELD_LABEL_FONT = "Open Sans";
-    public static final String QUERY_VIEWER_ENTER_BUTTON_FONT = "Open Sans";
-    public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT = "Open Sans";
+    public static final String QUERY_VIEWER_FIELD_LABEL_FONT = DEFAULT_FONT;
+    public static final String QUERY_VIEWER_ENTER_BUTTON_FONT = DEFAULT_FONT;
+    public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT = DEFAULT_FONT;
 
     /*
      * Colori dei caratteri usati nel QueryFrame.
      */
 
-    public static final String QUERY_VIEWER_FIELD_LABEL_FONT_COLOR = "#ffffff";
-    public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR = "#ffffff";
+    public static final String QUERY_VIEWER_FIELD_LABEL_FONT_COLOR = DEFAULT_FONT_COLOR;
+    public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR = DEFAULT_FONT_COLOR;
 
     /*
      * Dimensione dei caratteri usati nel QueryFrame.
      */
-
-    public static final int QUERY_VIEWER_FIELD_LABEL_FONT_SIZE = 15;
-    public static final int QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT_SIZE = 15;
-    public static final int QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_SIZE = 15;
+    public static final int QUERY_VIEWER_FIELD_LABEL_FONT_SIZE = DEFAULT_FONT_SIZE;
+    public static final int QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT_SIZE = DEFAULT_FONT_SIZE;
+    public static final int QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_SIZE = DEFAULT_FONT_SIZE;
 
     /*
      * Colori dei componenti del QueryFrame, dagli sfondi del frame a quello del
      * bottone di invio.
      */
-
-    public static final String QUERY_VIEWER_FRAME_INNER_ROW_BACKGROUND = "#ffffff";
-    public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_BACKGROUND = "#ffffff";
-    public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND = "#ffffff";
-    public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = "#ffffff";
-    public static final String QUERY_VIEWER_ROW_OUTER_ROW_BACKGROUND = "#ffffff";
-    public static final String QUERY_VIEWER_FRAME_GRID_BACKGROUND = "#ffffff";
-    public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_BACKGROUND = "#ffffff";
-    public static final String QUERY_VIEWER_OUTER_FIELD_BACKGROUND = "#FFFFFF";
+    public static final String QUERY_VIEWER_FRAME_INNER_ROW_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND = DARK_OUTER;
+    public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_ROW_OUTER_ROW_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_FRAME_GRID_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_BACKGROUND = DARK_OUTER_LIGHTER;
+    public static final String QUERY_VIEWER_OUTER_FIELD_BACKGROUND = DARK_OUTER_LIGHTER;
 
     /*
      * Label sul bottone di invio del QueryFrame.

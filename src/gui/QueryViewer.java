@@ -58,9 +58,9 @@ public class QueryViewer extends Actor {
                     .setForeground(Color.decode(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR));
             operationDescription.setFont(new Font(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT, Font.BOLD,
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_SIZE));
-            operationDescription.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[1],
+            operationDescription.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[0],
+                    Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[1],
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[2],
-                    Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[0],
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[3]));
 
             panel.add(operationDescription);
@@ -137,27 +137,17 @@ public class QueryViewer extends Actor {
             JLabel label = new JLabel("Campo", SwingConstants.CENTER);
 
             outerRow.setBackground(Color.decode(Config.QUERY_VIEWER_ROW_OUTER_ROW_BACKGROUND));
-            outerRow.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FIELD_OUTER_ROW_PADDING[0],
-                    Config.QUERY_VIEWER_FIELD_OUTER_ROW_PADDING[1], Config.QUERY_VIEWER_FIELD_OUTER_ROW_PADDING[2],
-                    Config.QUERY_VIEWER_FIELD_OUTER_ROW_PADDING[3]));
+            outerRow.setBorder(new EmptyBorder(5, 0, 5, 0));
 
             innerRow.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_INNER_ROW_BACKGROUND));
-            innerRow.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FIELD_INNER_ROW_PADDING[0],
-                    Config.QUERY_VIEWER_FIELD_INNER_ROW_PADDING[1], Config.QUERY_VIEWER_FIELD_INNER_ROW_PADDING[2],
-                    Config.QUERY_VIEWER_FIELD_INNER_ROW_PADDING[3]));
+            innerRow.setBorder(new EmptyBorder(10, 5, 10, 5));
 
             label.setForeground(Color.decode(Config.QUERY_VIEWER_FIELD_LABEL_FONT_COLOR));
-            label.setFont(new Font(Config.QUERY_VIEWER_FIELD_LABEL_FONT, Font.BOLD,
-                    Config.QUERY_VIEWER_FIELD_LABEL_FONT_SIZE));
+            label.setFont(new Font("Open Sans", Font.BOLD, 15));
 
-            fieldContainer.setBorder(new EmptyBorder(Config.QUERY_VIEWER_OUTER_FIELD_PADDING[0],
-                    Config.QUERY_VIEWER_OUTER_FIELD_PADDING[1], Config.QUERY_VIEWER_OUTER_FIELD_PADDING[2],
-                    Config.QUERY_VIEWER_OUTER_FIELD_PADDING[3]));
-            fieldContainer.setBackground(Color.decode(Config.QUERY_VIEWER_OUTER_FIELD_BACKGROUND));
+            fieldContainer.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_INNER_BACKGROUND));
 
-            field.setBorder(new EmptyBorder(Config.QUERY_VIEWER_INNER_FIELD_PADDING[0],
-                    Config.QUERY_VIEWER_INNER_FIELD_PADDING[1], Config.QUERY_VIEWER_INNER_FIELD_PADDING[2],
-                    Config.QUERY_VIEWER_INNER_FIELD_PADDING[3]));
+            field.setBorder(new EmptyBorder(0, 0, 0, 0));
 
             fieldContainer.add(field);
 
@@ -174,7 +164,7 @@ public class QueryViewer extends Actor {
              * Gerarchia: Button > Label
              */
             JPanel enterButton = new JPanel();
-            JLabel enterLabel = new JLabel(Config.QUERY_VIEWER_FRAME_ENTER_TEXT);
+            JLabel enterLabel = new JLabel("Esegui");
 
             enterButton.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FRAME_BUTTON_PADDING[0],
                     Config.QUERY_VIEWER_FRAME_BUTTON_PADDING[1], Config.QUERY_VIEWER_FRAME_BUTTON_PADDING[2],
