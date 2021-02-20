@@ -54,7 +54,7 @@ public class Config {
                         new Operation("SELECT * FROM professori", "Seleziona tutti i professori della scuola."),
                         new Operation("SELECT nome FROM studente WHERE matricola = {Alias}",
                                         "Seleziona il nome dello studente selezionato tramite matricola."),
-                        new Operation("SELECT nome, cognome FROM studente WHERE sezione = {Sezione} AND anno = {Anno}",
+                        new Operation("SELECT nome, cognome FROM studente WHERE sezione = {Prima} AND anno = {Dopo}",
                                         "Seleziona nome e cognome di tutti gli studenti di una determinata classe.")));
 
         /*
@@ -261,7 +261,6 @@ public class Config {
          * bottone di invio.
          */
         public static final String QUERY_VIEWER_FRAME_ROW_BACKGROUND = DARK_OUTER_LIGHTER;
-        public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_BACKGROUND = DARK_OUTER_LIGHTER;
         public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND = DARK_OUTER;
         public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = DARK_OUTER_LIGHTER;
         public static final String QUERY_VIEWER_FRAME_GRID_BACKGROUND = DARK_OUTER_LIGHTER;

@@ -148,7 +148,7 @@ public class QueryViewer extends Actor {
 
             ArrayList<String> aliases = builder.getAliases();
 
-            for (int i = 0; i < builder.getValuesSize(); i++) {
+            for (int i = builder.getValuesSize() - 1; i >= 0; i--) {
                 grid.add(createRow(aliases.get(i), inputValues));
             }
 
@@ -195,7 +195,7 @@ public class QueryViewer extends Actor {
                     Config.QUERY_VIEWER_FRAME_BUTTON_PADDING[1], Config.QUERY_VIEWER_FRAME_BUTTON_PADDING[2],
                     Config.QUERY_VIEWER_FRAME_BUTTON_PADDING[3]));
             enterButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            enterButton.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_ENTER_BUTTON_BACKGROUND));
+            enterButton.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_BUTTON_BACKGROUND));
             enterButton.addMouseListener(new EnterButtonListener());
             enterLabel.setForeground(Color.WHITE);
             enterLabel.setFont(new Font(Config.QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT, Font.BOLD,
@@ -221,6 +221,7 @@ public class QueryViewer extends Actor {
                 builder.setInputValues(inputValues);
                 frame.dispose();
                 MainViewer.display(":Query lanciata!");
+                // IF public queries..
                 MainViewer.display(builder.getQuery() + "<br />");
                 // new DBHandler() ...
             } else {

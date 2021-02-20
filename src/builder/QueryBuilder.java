@@ -117,10 +117,10 @@ public class QueryBuilder extends Actor {
         String temp = query;
 
         int[] x = new int[2];
-        int i = 0;
+        int i = values.size();
 
         while ((x = parseQuery(temp)) != null) {
-            buffer.replace(x[0], x[1] + 1, values.get(i++));
+            buffer.replace(x[0], x[1] + 1, values.get(--i));
             temp = buffer.toString();
         }
 
