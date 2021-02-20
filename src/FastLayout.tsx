@@ -15,7 +15,6 @@ export default function FastLayout() {
             <div className="fast-layout-buttons">
                 <div className="fast-layout-button-container">
                     <Button
-                        disabled
                         href={downloadLink}
                         size="large"
                         icon={<DownloadOutlined />}

@@ -36,7 +36,7 @@ function App() {
                                             applicazioni grafiche in Java per il
                                             progetto del corso di Basi di Dati
                                         </strong>{" "}
-                                        del secondo semestre di Informatica
+                                        della triennale di Informatica
                                         all’Università di Salerno. Il software,
                                         per funzionare, ha bisogno
                                         <strong>
@@ -53,8 +53,7 @@ function App() {
                                             onClick={() =>
                                                 alert("Non ancora disponibile.")
                                             }
-                                            disabled
-                                            //href={downloadLink}
+                                            href={downloadLink}
                                             size="large"
                                             icon={<DownloadOutlined />}
                                             className="action-button"
