@@ -2,6 +2,8 @@ package gui;
 
 import endpoint.Actor;
 import endpoint.Operation;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFrame;
 import config.Config;
@@ -9,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
@@ -39,6 +43,12 @@ public class QueryViewer extends Actor {
             setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             setSize(Config.QUERY_VIEWER_FRAME_SIZE[0], Config.QUERY_VIEWER_FRAME_SIZE[1]);
             setLocationRelativeTo(null);
+
+            try {
+                setIconImage(ImageIO.read(new File(Config.MOTODB_ICON_PATH)));
+            } catch (IOException e) {
+                debug("!Impossibile trovare l'icona dell'applicazione. Ricontrolla la configurazione.");
+            }
 
             debug("?Operazione selezionata: " + op.getDescription());
             debug("?Query grezza indicata: " + op.getQuery());
