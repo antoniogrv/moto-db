@@ -50,9 +50,6 @@ function App() {
                                 <Row gutter={12}>
                                     <Col span={11}>
                                         <Button
-                                            onClick={() =>
-                                                alert("Non ancora disponibile.")
-                                            }
                                             href={downloadLink}
                                             size="large"
                                             icon={<DownloadOutlined />}
