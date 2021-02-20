@@ -75,7 +75,6 @@ public class Config {
      * Famiglie di caratteri usati nelle stampe a video. Include il colore e la
      * dimensione predefinita.
      */
-
     public static final String DEFAULT_FONT = "Open Sans";
     public static final String DEFAULT_FONT_COLOR = "#FFFFFF";
     public static final int DEFAULT_FONT_SIZE = 15;
@@ -86,6 +85,13 @@ public class Config {
     public static final String DARK_OUTER = "#202124";
     public static final String DARK_INNER = "#191A1C";
     public static final String DARK_OUTER_LIGHTER = "#1D1E21";
+
+    /*
+     * Colori principali della Light Mode.
+     */
+    public static final String LIGHT_OUTER = "#DDDDDD";
+    public static final String LIGHT_INNER = "#EEEEEE";
+    public static final String LIGHT_OUTER_LIGHTER = "#FFFFFF";
 
     /*
      * Impostazioni del frame di debug. Le dimensioni sono espresse in {Larghezza,
@@ -115,7 +121,7 @@ public class Config {
     public static final int[] DEBUG_VIEWER_FRAME_INNER_PADDING = new int[] { 12, 12, 12, 12 };
 
     /*
-     * Impostazioni del frame principale (da qui in poi MainViewer) di selezione
+     * Impostazioni del frame principale (da qui in poi MainFrame) di selezione
      * delle operazioni. Le dimensioni sono espresse in {Larghezza, Altezza}.
      */
     public static final String MAIN_VIEWER_FRAME_TITLE = PROJECT_NAME;
@@ -257,8 +263,7 @@ public class Config {
 
     /*
      * Abilita la colorazione scura della GUI. Impostare a 'false' per usare la
-     * modalità chiara. Nella 1.00 è disponibile esclusivamente la dark mode, dunque
-     * cambiare la seguente impostazione non produrrà alcun effetto, per ora.
+     * modalità chiara.
      */
     public static final boolean DARK_MODE = true;
 
