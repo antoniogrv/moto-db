@@ -20,7 +20,7 @@ public class MainViewer extends Actor {
      * La JTextArea result è l'area di testo in cui verranno stampati i risultati
      * delle query in funzione dell'operazione selezionata.
      */
-    private JTextArea result;
+    private JTextPane result;
 
     public MainViewer() {
         debug("?Genero l'interfaccia...");
@@ -139,7 +139,9 @@ public class MainViewer extends Actor {
              */
             JPanel resultContainer = new JPanel(new GridLayout(1, 1));
             JPanel resultWrapper = new JPanel(new GridLayout(1, 1));
-            JTextArea result = new JTextArea(Config.MAIN_VIEWER_FRAME_DEFAULT_TEXT);
+            JTextPane result = new JTextPane();
+
+            result.setText(Config.MAIN_VIEWER_FRAME_DEFAULT_TEXT);
 
             resultContainer.setBackground(Color.decode(Config.MAIN_VIEWER_FRAME_INNER_BACKGROUND));
             resultContainer.setBorder(new EmptyBorder(Config.MAIN_VIEWER_FRAME_RESULT_OUTER_PADDING[1],
@@ -154,8 +156,7 @@ public class MainViewer extends Actor {
             result.setEditable(false);
             result.setFont(new Font(Config.MAIN_VIEWER_FRAME_RESULT_FONT, Font.PLAIN,
                     Config.MAIN_VIEWER_FRAME_RESULT_FONT_SIZE));
-            result.setLineWrap(true);
-            result.setWrapStyleWord(true);
+            result.setContentType("text/html");
 
             if (Config.DEBUG_MODE && Config.LOREM_IPSUM)
                 result.setText(resultDemo());
@@ -209,14 +210,14 @@ public class MainViewer extends Actor {
     /*
      * Getter: Result
      */
-    public JTextArea getResult() {
+    public JTextPane getResult() {
         return this.result;
     }
 
     /*
      * Setter: Result
      */
-    public void setResult(JTextArea result) {
+    public void setResult(JTextPane result) {
         this.result = result;
     }
 

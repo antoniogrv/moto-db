@@ -179,11 +179,18 @@ public class Config {
         public static final String SCROLLBAR_BORDER = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
 
         /*
-         * Testi predefiniti alla rilevazione di certe azioni. Si invita a consultare la
-         * documentazione in caso di dubbio.
+         * Testi e impostazioni predefinite per i messaggi stampati a schermo. Si invita
+         * a consultare la documentazione in caso di dubbio.
          */
         public static final String MAIN_VIEWER_FRAME_DEFAULT_TEXT = "Bentornato!\n\n";
-        public static final String QUERY_VIEWER_FRAME_NO_INPUT = "Non sono ammessi campi non compilati!\n";
+
+        public static final String QUERY_VIEWER_FRAME_NO_INPUT_FONT = DEFAULT_FONT;
+        public static final String QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR = DEBUG_VIEWER_FRAME_COLOR_FAIL;
+        public static final int QUERY_VIEWER_FRAME_NO_INPUT_FONT_SIZE = DEFAULT_FONT_SIZE;
+        public static final String QUERY_VIEWER_FRAME_NO_INPUT = "<b><span style='font-size: "
+                        + QUERY_VIEWER_FRAME_NO_INPUT_FONT_SIZE + "; font-family:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT
+                        + "; color:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR
+                        + "'>Non sono ammessi campi non compilati!</span></b>\n";
 
         /*
          * Spaziatura interna ed esterna dell'area di testo dei risultati nel MainFrame.

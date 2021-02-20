@@ -21,12 +21,12 @@ import builder.QueryBuilder;
 
 public class QueryViewer extends Actor {
 
-    private JTextArea result;
+    private JTextPane result;
     private Operation op;
     private QueryBuilder builder;
     ArrayList<JTextField> inputValues = new ArrayList<JTextField>();
 
-    public QueryViewer(Operation op, JTextArea result) {
+    public QueryViewer(Operation op, JTextPane result) {
         this.result = result;
         this.op = op;
         this.builder = new QueryBuilder(op.getQuery());
@@ -225,7 +225,7 @@ public class QueryViewer extends Actor {
                 builder.setInputValues(inputValues);
             else {
                 debug("!Non sono ammessi campi non compilati");
-                result.append(Config.QUERY_VIEWER_FRAME_NO_INPUT);
+                result.setText(Config.QUERY_VIEWER_FRAME_NO_INPUT);
             }
 
         }
