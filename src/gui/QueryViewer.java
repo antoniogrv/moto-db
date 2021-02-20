@@ -2,7 +2,6 @@ package gui;
 
 import endpoint.Actor;
 import endpoint.Operation;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFrame;
@@ -13,11 +12,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicScrollBarUI;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
 
 import builder.QueryBuilder;
 
@@ -136,11 +134,16 @@ public class QueryViewer extends Actor {
         }
 
         public JPanel createGrid() {
-            JPanel grid = new JPanel(new GridLayout(10, 2));
+            int rows = (builder.getValuesSize() > Config.QUERY_VIEWER_FRAME_MIN_ROWS) ? builder.getValuesSize()
+                    : Config.QUERY_VIEWER_FRAME_MIN_ROWS;
+
+            JPanel grid = new JPanel(new GridLayout(rows, 2));
             grid.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_GRID_BACKGROUND));
 
+            ArrayList<String> aliases = builder.getAliases();
+
             for (int i = 0; i < builder.getValuesSize(); i++) {
-                grid.add(createRow(builder.getAliases().get(i)));
+                grid.add(createRow(aliases.get(i)));
             }
 
             return grid;
@@ -148,37 +151,29 @@ public class QueryViewer extends Actor {
 
         public JPanel createRow(String alias) {
             /*
-             * Gerarchia: Outer Row > Inner Row {Label, Field Container > Field}
+             * Gerarchia: Row > {Label, Field Container > Field}
              */
-            JPanel outerRow = new JPanel(new GridLayout(1, 2));
-            JPanel innerRow = new JPanel(new GridLayout(1, 1));
-
-            JPanel fieldContainer = new JPanel(new GridLayout(1, 1));
+            JPanel row = new JPanel(new GridLayout(1, 2));
             JTextField field = new JTextField();
-
             JLabel label = new JLabel(alias, SwingConstants.CENTER);
 
-            outerRow.setBackground(Color.decode(Config.QUERY_VIEWER_ROW_OUTER_ROW_BACKGROUND));
-            outerRow.setBorder(new EmptyBorder(5, 0, 5, 0));
+            row.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_ROW_BACKGROUND));
+            row.setBorder(
+                    new EmptyBorder(Config.QUERY_VIEWER_FRAME_ROW_PADDING[0], Config.QUERY_VIEWER_FRAME_ROW_PADDING[1],
+                            Config.QUERY_VIEWER_FRAME_ROW_PADDING[2], Config.QUERY_VIEWER_FRAME_ROW_PADDING[3]));
 
-            innerRow.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_INNER_ROW_BACKGROUND));
-            innerRow.setBorder(new EmptyBorder(10, 5, 10, 5));
+            label.setForeground(Color.decode(Config.QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT_COLOR));
+            label.setFont(new Font(Config.QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT, Font.BOLD,
+                    Config.QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT_SIZE));
 
-            label.setForeground(Color.decode(Config.QUERY_VIEWER_FIELD_LABEL_FONT_COLOR));
-            label.setFont(new Font("Open Sans", Font.BOLD, 15));
+            field.setBorder(new EmptyBorder(Config.QUERY_VIEWER_FRAME_INNER_FIELD_PADDING[0],
+                    Config.QUERY_VIEWER_FRAME_INNER_FIELD_PADDING[1], Config.QUERY_VIEWER_FRAME_INNER_FIELD_PADDING[2],
+                    Config.QUERY_VIEWER_FRAME_INNER_FIELD_PADDING[3]));
 
-            fieldContainer.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_INNER_BACKGROUND));
+            row.add(label);
+            row.add(field);
 
-            field.setBorder(new EmptyBorder(0, 0, 0, 0));
-
-            fieldContainer.add(field);
-
-            innerRow.add(label);
-            innerRow.add(fieldContainer);
-
-            outerRow.add(innerRow);
-
-            return outerRow;
+            return row;
         }
 
         public JPanel createEnterButton() {
@@ -195,7 +190,7 @@ public class QueryViewer extends Actor {
             enterButton.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_ENTER_BUTTON_BACKGROUND));
             enterButton.addMouseListener(new EnterButtonListener());
             enterLabel.setForeground(Color.WHITE);
-            enterLabel.setFont(new Font(Config.QUERY_VIEWER_ENTER_BUTTON_FONT, Font.BOLD,
+            enterLabel.setFont(new Font(Config.QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT, Font.BOLD,
                     Config.QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT_SIZE));
 
             enterButton.add(enterLabel);

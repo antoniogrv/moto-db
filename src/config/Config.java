@@ -217,32 +217,32 @@ public class Config {
          * campi di testo interni ed esterni; le spaziature del bottone di invio; la
          * spaziatura della descrizione.
          */
-        public static final int[] QUERY_VIEWER_INNER_FIELD_PADDING = new int[] { 0, 0, 0, 0 };
-        public static final int[] QUERY_VIEWER_FIELD_INNER_ROW_PADDING = new int[] { 10, 5, 10, 5 };
-        public static final int[] QUERY_VIEWER_FIELD_OUTER_ROW_PADDING = new int[] { 5, 0, 5, 0 };
+        public static final int[] QUERY_VIEWER_FRAME_INNER_FIELD_PADDING = new int[] { 0, 0, 0, 0 };
+        public static final int[] QUERY_VIEWER_FRAME_OUTER_FIELD_PADDING = new int[] { 0, 0, 0, 10 };
+        public static final int[] QUERY_VIEWER_FRAME_ROW_PADDING = new int[] { 10, 5, 10, 5 };
         public static final int[] QUERY_VIEWER_FRAME_BUTTON_PADDING = new int[] { 2, 20, 2, 20 };
-        public static final int[] QUERY_VIEWER_OUTER_FIELD_PADDING = new int[] { 0, 0, 0, 10 };
         public static final int[] QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING = new int[] { 5, 0, 5, 0 };
 
         /*
          * Famiglie dei caratteri usati nel QueryFrame.
          */
 
-        public static final String QUERY_VIEWER_FIELD_LABEL_FONT = DEFAULT_FONT;
-        public static final String QUERY_VIEWER_ENTER_BUTTON_FONT = DEFAULT_FONT;
+        public static final String QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT = DEFAULT_FONT;
+        public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT = DEFAULT_FONT;
         public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT = DEFAULT_FONT;
 
         /*
          * Colori dei caratteri usati nel QueryFrame.
          */
 
-        public static final String QUERY_VIEWER_FIELD_LABEL_FONT_COLOR = DEFAULT_FONT_COLOR;
+        public static final String QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT_COLOR = DEFAULT_FONT_COLOR;
+        public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT_COLOR = DEFAULT_FONT_COLOR;
         public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_COLOR = DEFAULT_FONT_COLOR;
 
         /*
          * Dimensione dei caratteri usati nel QueryFrame.
          */
-        public static final int QUERY_VIEWER_FIELD_LABEL_FONT_SIZE = DEFAULT_FONT_SIZE;
+        public static final int QUERY_VIEWER_FRAME_INNER_FIELD_LABEL_FONT_SIZE = DEFAULT_FONT_SIZE;
         public static final int QUERY_VIEWER_FRAME_ENTER_BUTTON_FONT_SIZE = DEFAULT_FONT_SIZE;
         public static final int QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_FONT_SIZE = DEFAULT_FONT_SIZE;
 
@@ -250,19 +250,24 @@ public class Config {
          * Colori dei componenti del QueryFrame, dagli sfondi del frame a quello del
          * bottone di invio.
          */
-        public static final String QUERY_VIEWER_FRAME_INNER_ROW_BACKGROUND = DARK_OUTER_LIGHTER;
+        public static final String QUERY_VIEWER_FRAME_ROW_BACKGROUND = DARK_OUTER_LIGHTER;
         public static final String QUERY_VIEWER_FRAME_ENTER_BUTTON_BACKGROUND = DARK_OUTER_LIGHTER;
         public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND = DARK_OUTER;
         public static final String QUERY_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER = DARK_OUTER_LIGHTER;
-        public static final String QUERY_VIEWER_ROW_OUTER_ROW_BACKGROUND = DARK_OUTER_LIGHTER;
         public static final String QUERY_VIEWER_FRAME_GRID_BACKGROUND = DARK_OUTER_LIGHTER;
         public static final String QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_BACKGROUND = DARK_OUTER_LIGHTER;
-        public static final String QUERY_VIEWER_OUTER_FIELD_BACKGROUND = DARK_OUTER_LIGHTER;
+        public static final String QUERY_VIEWER_FRAME_OUTER_FIELD_BACKGROUND = DARK_OUTER_LIGHTER;
 
         /*
          * Label sul bottone di invio del QueryFrame.
          */
         public static final String QUERY_VIEWER_FRAME_ENTER_TEXT = "Esegui";
+
+        /*
+         * Numero minimo di righe nella griglia del QueryFrame. Un numero troppo basso
+         * potrebbe compromettere il layout.
+         */
+        public static final int QUERY_VIEWER_FRAME_MIN_ROWS = 8;
 
         /*
          * Abilita la colorazione scura della GUI. Impostare a 'false' per usare la

@@ -96,6 +96,9 @@ public class QueryBuilder extends Actor {
             temp = buffer.toString();
         }
 
+        for (String alias : aliases)
+            debug("?Alias individuato: " + alias);
+
         return aliases;
     }
 
