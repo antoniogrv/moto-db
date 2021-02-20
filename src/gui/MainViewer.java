@@ -212,13 +212,37 @@ public class MainViewer extends Actor {
     }
 
     public static void display(String str) {
-        resultContent.add(str);
+        String msg = "";
+        switch (str.charAt(0)) {
+            case '!':
+                msg += "<b><span style='font-size: " + Config.DISPLAY_FAIL_FONT_SIZE + "; font-family:"
+                        + Config.DISPLAY_FAIL_FONT + "; color:" + Config.DISPLAY_FAIL_FONT_COLOR + "'>"
+                        + str.substring(1) + "</span></b><br />\n";
+                break;
+
+            case ':':
+                msg += "<b><span style='font-size: " + Config.DISPLAY_REGULAR_FONT_SIZE + "; font-family:"
+                        + Config.DISPLAY_REGULAR_FONT + "; color:" + Config.DISPLAY_REGULAR_FONT_COLOR + "'>"
+                        + str.substring(1) + "</span></b>\n";
+                break;
+
+            default:
+                msg += "<span style='font-size: " + Config.DISPLAY_REGULAR_FONT_SIZE + "; font-family:"
+                        + Config.DISPLAY_REGULAR_FONT + "; color:" + Config.DISPLAY_REGULAR_FONT_COLOR + "'>" + str
+                        + "</span>\n";
+                break;
+
+        }
+
+        resultContent.add(msg);
 
         String content = "";
-        for (String x : resultContent)
-            content += x + "<br />";
+
+        for (String prev : resultContent)
+            content += prev + "<br />";
 
         result.setText(content);
+
     }
 
     /*

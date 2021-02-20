@@ -127,7 +127,7 @@ public class Config {
          * delle operazioni. Le dimensioni sono espresse in {Larghezza, Altezza}.
          */
         public static final String MAIN_VIEWER_FRAME_TITLE = PROJECT_NAME;
-        public static final int[] MAIN_VIEWER_FRAME_SIZE = new int[] { 650, 550 };
+        public static final int[] MAIN_VIEWER_FRAME_SIZE = new int[] { 850, 550 };
 
         /*
          * Colori del MainFrame.
@@ -184,15 +184,15 @@ public class Config {
          */
         public static final String MAIN_VIEWER_FRAME_DEFAULT_TEXT = "Bentornato!\n\n";
 
-        public static final String QUERY_VIEWER_FRAME_NO_INPUT_TEXT = "Non sono ammessi campi non compilati!";
-        public static final String QUERY_VIEWER_FRAME_NO_INPUT_FONT = DEFAULT_FONT;
-        public static final String QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR = DEBUG_VIEWER_FRAME_COLOR_FAIL;
-        public static final int QUERY_VIEWER_FRAME_NO_INPUT_FONT_SIZE = DEFAULT_FONT_SIZE;
+        public static final String MAIN_VIEWER_FRAME_NO_INPUT_TEXT = "Non sono ammessi campi non compilati!";
 
-        public static final String QUERY_VIEWER_FRAME_NO_INPUT = "<b><span style='font-size: "
-                        + QUERY_VIEWER_FRAME_NO_INPUT_FONT_SIZE + "; font-family:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT
-                        + "; color:" + QUERY_VIEWER_FRAME_NO_INPUT_FONT_COLOR + "'>" + QUERY_VIEWER_FRAME_NO_INPUT_TEXT
-                        + "</span></b>\n";
+        public static final String DISPLAY_FAIL_FONT = DEFAULT_FONT;
+        public static final String DISPLAY_FAIL_FONT_COLOR = DEBUG_VIEWER_FRAME_COLOR_FAIL;
+        public static final int DISPLAY_FAIL_FONT_SIZE = DEFAULT_FONT_SIZE;
+
+        public static final String DISPLAY_REGULAR_FONT = DEFAULT_FONT;
+        public static final String DISPLAY_REGULAR_FONT_COLOR = DEFAULT_FONT_COLOR;
+        public static final int DISPLAY_REGULAR_FONT_SIZE = DEFAULT_FONT_SIZE;
 
         /*
          * Spaziatura interna ed esterna dell'area di testo dei risultati nel MainFrame.

@@ -220,10 +220,12 @@ public class QueryViewer extends Actor {
             if (given == builder.getValuesSize()) {
                 builder.setInputValues(inputValues);
                 frame.dispose();
+                MainViewer.display(":Query lanciata!");
+                MainViewer.display(builder.getQuery() + "<br />");
                 // new DBHandler() ...
             } else {
                 debug("!Non sono ammessi campi non compilati");
-                MainViewer.display(Config.QUERY_VIEWER_FRAME_NO_INPUT);
+                MainViewer.display("!" + Config.MAIN_VIEWER_FRAME_NO_INPUT_TEXT);
             }
 
         }
