@@ -4,7 +4,7 @@ import config.Config;
 
 public class DebugFormat {
     public enum DebugMessageType {
-        SUCCESS, FAIL, WAIT
+        SUCCESS, FAIL, WAIT, NOTIFY
     };
 
     private DebugMessageType type;
@@ -18,7 +18,7 @@ public class DebugFormat {
         /*
          * Colore di default.
          */
-        this.color = "#FFFFFF";
+        this.color = Config.DEFAULT_FONT_COLOR;
 
         switch (this.type) {
             case SUCCESS:
@@ -31,6 +31,10 @@ public class DebugFormat {
 
             case FAIL:
                 this.color = Config.DEBUG_VIEWER_FRAME_COLOR_FAIL;
+                break;
+
+            case NOTIFY:
+                this.color = Config.DEBUG_VIEWER_FRAME_COLOR_NOTIFY;
                 break;
         }
     }

@@ -20,7 +20,7 @@ public class DebugViewer extends Actor {
 
     public DebugViewer() {
         new DebugFrame();
-        debug(":Modalità di debug attiva");
+        debug("#Modalità di debug attiva");
     }
 
     public static class DebugFrame extends JFrame {
@@ -141,6 +141,13 @@ public class DebugViewer extends Actor {
                  */
                 case ':':
                     type = DebugMessageType.SUCCESS;
+                    break;
+
+                /*
+                 * Messaggi speciali non meglio definiti
+                 */
+                case '#':
+                    type = DebugMessageType.NOTIFY;
                     break;
 
                 default:

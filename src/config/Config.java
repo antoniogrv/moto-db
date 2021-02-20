@@ -112,6 +112,7 @@ public class Config {
     public static final String DEBUG_VIEWER_FRAME_COLOR_SUCCESS = "#81EE90";
     public static final String DEBUG_VIEWER_FRAME_COLOR_FAIL = "#F26F72";
     public static final String DEBUG_VIEWER_FRAME_COLOR_WAIT = "#E4D357";
+    public static final String DEBUG_VIEWER_FRAME_COLOR_NOTIFY = "#84A5FF";
 
     /*
      * Spaziatura esterna ed interna del frame di debug in pixel. Le dimensioni sono
@@ -169,10 +170,10 @@ public class Config {
     /*
      * Impostazioni della scrollbar interna del MainFrame.
      */
-    public static final String SCROLLBAR_THUMB = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-    public static final String SCROLLBAR_THUMB_DARK_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-    public static final String SCROLLBAR_THUMB_SHADOW = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
-    public static final String SCROLLBAR_THUMB_HIGHLIGHT = MAIN_VIEWER_FRAME_BUTTON_BACKGROUND_HOVER;
+    public static final String SCROLLBAR_THUMB = DARK_OUTER_LIGHTER;
+    public static final String SCROLLBAR_THUMB_DARK_SHADOW = DARK_OUTER_LIGHTER;
+    public static final String SCROLLBAR_THUMB_SHADOW = DARK_OUTER_LIGHTER;
+    public static final String SCROLLBAR_THUMB_HIGHLIGHT = DARK_OUTER_LIGHTER;
     public static final String SCROLLBAR_TRACK = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
     public static final String SCROLLBAR_BORDER = MAIN_VIEWER_FRAME_INNER_BACKGROUND;
 
