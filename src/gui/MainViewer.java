@@ -285,7 +285,7 @@ public class MainViewer extends Actor {
             debug("?Richiedo la creazione di un QueryViewer...");
             new QueryViewer(Config.Operations.get(operationId), result);
 
-            MainViewer.display(":Hai selezionato l'operazione " + (operationId - 1) + "<br />");
+            MainViewer.display(":Hai selezionato l'operazione " + (operationId + 1) + "<br />");
 
             debug(":QueryViewer creato con successo per l'operazione " + (operationId + 1));
         }
