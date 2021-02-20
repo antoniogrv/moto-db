@@ -10,24 +10,34 @@ public class QueryBuilder extends Actor {
 
     private String query;
     private int valuesSize;
-    private String[] values;
+    private ArrayList<String> values;
     private ArrayList<JTextField> inputValues;
     private String rawQuery;
 
     public QueryBuilder(String rawQuery) {
         this.rawQuery = rawQuery;
         this.valuesSize = setValuesSize(rawQuery);
-        this.values = new String[this.valuesSize];
+        this.values = new ArrayList<String>();
         this.inputValues = new ArrayList<JTextField>();
-
-        // this.query = injectValues(rawQuery, values);
-
-        // new DBHandler(query);
     }
 
     public void setInputValues(ArrayList<JTextField> inputValues) {
-        for (JTextField x : inputValues)
-            values[values.length] = x.getText();
+        for (JTextField x : inputValues) {
+            if (!x.getText().isEmpty())
+                values.add(x.getText());
+            debug("?Valore registrato: " + x.getText());
+        }
+
+        setQuery();
+    }
+
+    public void setQuery() {
+        debug("?Valori ottenuti: " + values.size());
+        if (!values.isEmpty())
+            this.query = injectValues(rawQuery, values);
+        else
+            this.query = this.rawQuery;
+        debug(":Query elaborata: " + this.query);
     }
 
     public int getValuesSize() {
@@ -102,7 +112,7 @@ public class QueryBuilder extends Actor {
         return aliases;
     }
 
-    public String injectValues(String query, String[] values) {
+    public String injectValues(String query, ArrayList<String> values) {
         StringBuffer buffer = new StringBuffer(query);
         String temp = query;
 
@@ -110,7 +120,7 @@ public class QueryBuilder extends Actor {
         int i = 0;
 
         while ((x = parseQuery(temp)) != null) {
-            buffer.replace(x[0], x[1] + 1, values[i++]);
+            buffer.replace(x[0], x[1] + 1, values.get(i++));
             temp = buffer.toString();
         }
 

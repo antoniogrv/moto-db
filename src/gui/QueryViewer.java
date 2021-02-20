@@ -24,11 +24,11 @@ public class QueryViewer extends Actor {
     private JTextArea result;
     private Operation op;
     private QueryBuilder builder;
+    ArrayList<JTextField> inputValues = new ArrayList<JTextField>();
 
     public QueryViewer(Operation op, JTextArea result) {
         this.result = result;
         this.op = op;
-        System.out.println(op.getQuery());
         this.builder = new QueryBuilder(op.getQuery());
 
         debug("?Tento di prelevare l'operazione richiesta...");
@@ -66,6 +66,9 @@ public class QueryViewer extends Actor {
         }
 
         public JPanel createOperationDescriptionPanel() {
+            /*
+             * Crea un'area di testo immutabile per stampare la descrizione dell'operazione.
+             */
             JPanel panel = new JPanel(new GridLayout(1, 1));
             panel.setBackground(Color.decode(Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_BACKGROUND));
 
@@ -82,6 +85,7 @@ public class QueryViewer extends Actor {
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[1],
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[2],
                     Config.QUERY_VIEWER_FRAME_OPERATION_DESCRIPTION_PADDING[3]));
+            operationDescription.setEditable(false);
 
             panel.add(operationDescription);
 
@@ -89,7 +93,9 @@ public class QueryViewer extends Actor {
         }
 
         public JPanel createContainer() {
-
+            /*
+             * Gerarchia: Outer > Inner
+             */
             JPanel outer = new JPanel(new GridLayout(1, 1));
             JPanel inner = new JPanel(new BorderLayout());
 
@@ -134,6 +140,9 @@ public class QueryViewer extends Actor {
         }
 
         public JPanel createGrid() {
+            /*
+             * La griglia contiene le righe per l'input e il bottone di esecuzione.
+             */
             int rows = (builder.getValuesSize() > Config.QUERY_VIEWER_FRAME_MIN_ROWS) ? builder.getValuesSize()
                     : Config.QUERY_VIEWER_FRAME_MIN_ROWS;
 
@@ -143,13 +152,13 @@ public class QueryViewer extends Actor {
             ArrayList<String> aliases = builder.getAliases();
 
             for (int i = 0; i < builder.getValuesSize(); i++) {
-                grid.add(createRow(aliases.get(i)));
+                grid.add(createRow(aliases.get(i), inputValues));
             }
 
             return grid;
         }
 
-        public JPanel createRow(String alias) {
+        public JPanel createRow(String alias, ArrayList<JTextField> inputValues) {
             /*
              * Gerarchia: Row > {Label, Field Container > Field}
              */
@@ -172,6 +181,8 @@ public class QueryViewer extends Actor {
 
             row.add(label);
             row.add(field);
+
+            inputValues.add(field);
 
             return row;
         }
@@ -203,8 +214,20 @@ public class QueryViewer extends Actor {
     public class EnterButtonListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
-            System.out.println("Qui si deve avviare il DBHandler");
-            System.out.println("Passare all'handler la query completa da QueryBuilder");
+            int given = 0;
+
+            for (JTextField x : inputValues) {
+                if (!x.getText().isEmpty())
+                    given++;
+            }
+
+            if (given == builder.getValuesSize())
+                builder.setInputValues(inputValues);
+            else {
+                debug("!Non sono ammessi campi non compilati");
+                result.append(Config.QUERY_VIEWER_FRAME_NO_INPUT);
+            }
+
         }
 
         public void mouseEntered(MouseEvent e) {
