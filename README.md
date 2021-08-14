@@ -1,5 +1,5 @@
 # MotoDB
-## [Stable 1.00](https://github.com/v1enna/moto-db/archive/master.zip)
+## [Download](https://github.com/v1enna/moto-db/archive/master.zip)
 
 **MotoDB is a generator of graphical applications in Java for the project of the class of Databases** of the three-year course of Computer Science at University of Salerno, Italy. 
 The software, in order to work, needs exclusively the queries of the desired operations (defined within the user's own _reality of interest_), and nothing else. 
