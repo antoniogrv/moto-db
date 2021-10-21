@@ -56,8 +56,7 @@ function App() {
                                             className="action-button"
                                             type="primary"
                                         >
-                                            Download — &nbsp;
-                                            <em>Stable 1.00</em>
+                                            Download
                                         </Button>
                                     </Col>
                                     <Col span={11}>

@@ -28,7 +28,7 @@ function createButtons(qnt: number) {
 export default function WindowExample() {
     return (
         <div className="window">
-            <div className="window-title">Dynamic GUI</div>
+            <div className="window-title">Autogenerazione di GUI</div>
             <div className="window-frame">
                 <Layout className="window-frame-container">
                     <Header className="window-frame-header">

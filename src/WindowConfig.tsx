@@ -6,7 +6,7 @@ const { Header, Content } = Layout;
 export default function WindowConfig() {
     return (
         <div className="window">
-            <div className="window-title">Fast Config</div>
+            <div className="window-title">Configurazione rapida e semplice</div>
             <div className="window-frame">
                 <Layout className="window-frame-container">
                     <Header className="window-frame-header">

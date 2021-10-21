@@ -6,7 +6,7 @@ const { Header, Content } = Layout;
 export default function WindowDebug() {
     return (
         <div className="window">
-            <div className="window-title">Debug Mode</div>
+            <div className="window-title">Modalità di debug</div>
             <div className="window-frame">
                 <Layout className="window-frame-container">
                     <Header className="window-frame-header">
@@ -97,12 +97,12 @@ export default function WindowDebug() {
                                                     </span>
                                                 </div>
                                                 <div className="line">
-                                                    <span className="good">
+                                                    <span className="neutral">
                                                         <strong>
                                                             {"<QueryBuilder>"}
                                                         </strong>{" "}
                                                         Richiesta ricevuta.
-                                                        Elaboro la query...
+                                                        Preparo la query...
                                                     </span>
                                                 </div>
                                                 <div className="line">
