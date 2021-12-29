@@ -7,8 +7,6 @@ The application has been designed for all those people who, for any reason, do n
 
 For any doubt you can consult the [project documentation](https://github.com/v1enna/moto-db/wiki) which is written in Italian.
 
-![Preview](https://i.gyazo.com/73db8d0a271f8773fc0554efd770fe1e.png)
-
 Assuming that the user already has the necessary set-up, that is the documentation from Point I (*description of the reality of interest*) 
 to Point VI (*definition of operations on the reality of interest*), **MotoDB allows you to create a complete and functional GUI in 10 minutes**, 
 leading to the completion of all the requirements of the project, making it presentable and deliverable to the teachers. In addition, if desired, the source code is completely editable to your liking, although this may result in the malfunction of the application itself.
@@ -208,8 +206,6 @@ The query requested will therefore be `"SELECT * FROM students WHERE section = I
 
 The point of the program is to: **launch queries based on certain input data from the user**. 
 Now, **MotoDB uses *Alias* to determine what will be queried from the user**. The parsing logic will take care of generating the inputs and the query; what is required of the user is to replace the values they want the user to be asked for with Aliases.
-
-![Preview](https://i.gyazo.com/cdf457b01f0ede8a1be300eeb5ad17b2.png)
 
 An Alias looks something like this: `{InputUser}`. 
 
